@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import Hero from '../components/hero'
+import About from '../components/about'
 import Layout from '../components/layout'
 import ArticlePreview from '../components/article-preview'
 
@@ -11,12 +12,16 @@ class RootIndex extends React.Component {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const posts = get(this, 'props.data.allContentfulBlogPost.edges')
     const [author] = get(this, 'props.data.allContentfulPerson.edges')
+    const [about] = get(this, 'props.data.allContentfulAbout.edges');
+
+    console.log('about: ', about);
 
     return (
       <Layout location={this.props.location} >
         <div style={{ background: '#fff' }}>
           <Helmet title={siteTitle} />
           <Hero data={author.node} />
+          <About data={about.node.description} />
           <div className="wrapper">
             <h2 className="section-headline">Recent articles</h2>
             <ul className="article-list">
@@ -81,6 +86,17 @@ export const pageQuery = graphql`
             ) {
               ...GatsbyContentfulFluid_tracedSVG
             }
+          }
+        }
+      }
+    }
+
+    allContentfulAbout(filter: { contentful_id: { eq: "4lF6ZjzmFHnSv5aGba96ii" } }) {
+      edges {
+        node {
+          headline
+          description {
+            description
           }
         }
       }

@@ -1,0 +1,18 @@
+import React from 'react'
+import Img from 'gatsby-image'
+
+import styles from './about.module.css'
+
+export default ({ data }) => {
+  console.log('data: ', data);
+return (
+  <div className={styles.aboutContainer} id="about">
+    {/* <Img className={styles.heroImage} alt={data.name} fluid={data.heroImage.fluid} /> */}
+    <div className={styles.aboutTextContainer}>
+      <h3 className={styles.aboutText}>{data.description}</h3>
+      {/* <p className={styles.heroTitle}>{data.title}</p> */}
+      {/* <p>{data.shortBio.shortBio}</p> */}
+    </div>
+  </div>
+)
+}

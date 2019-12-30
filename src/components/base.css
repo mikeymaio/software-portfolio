@@ -11,7 +11,8 @@ body {
   font-size: 1em;
   line-height: 1.65;
   color: #373F49;
-  background: #eee;
+  /* background: #eee; */
+  background: #fafafa;
   margin: 0;
 }
 
@@ -23,7 +24,7 @@ img {
 h1,
 h2,
 h3 {
-  font-size: 2em;
+  /* font-size: 2em; */
   font-weight: normal;
 }
 
