@@ -3,6 +3,7 @@ import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 
 import styles from './article-preview.module.css'
+import Chip from './chip'
 
 export default ({ article }) => (
   <div className={styles.preview}>
@@ -17,9 +18,7 @@ export default ({ article }) => (
       }}
     />
     {article.tags && article.tags.map(tag => (
-      <p className={styles.tag} key={tag}>
-        {tag}
-      </p>
+      <Chip chip={tag} />
     ))}
   </div>
 )

@@ -1,0 +1,9 @@
+.skillsList {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  list-style: none !important;
+}
+
+.skill {
+  display: inline-flex;
+}
