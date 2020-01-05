@@ -6,7 +6,6 @@ import Hero from '../components/hero'
 import About from '../components/about'
 import Layout from '../components/layout'
 import ArticlePreview from '../components/article-preview'
-import Skills from '../components/skills'
 import SkillList from '../components/skillList'
 
 class RootIndex extends React.Component {
