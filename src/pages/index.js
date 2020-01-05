@@ -6,6 +6,7 @@ import Hero from '../components/hero'
 import About from '../components/about'
 import Layout from '../components/layout'
 import ArticlePreview from '../components/article-preview'
+import Skills from '../components/skills'
 
 class RootIndex extends React.Component {
   render() {
@@ -14,21 +15,32 @@ class RootIndex extends React.Component {
     const [author] = get(this, 'props.data.allContentfulPerson.edges')
     const [about] = get(this, 'props.data.allContentfulAbout.edges');
 
-    console.log('about: ', about);
-
     return (
       <Layout location={this.props.location} >
-        <div style={{ background: '#fff' }}>
+        <div style={{ background: '#fff', paddingTop: '10vh' }}>
           <Helmet title={siteTitle} />
           <Hero data={author.node} />
-          <About data={about.node.description} />
-          <div className="wrapper">
-            <h2 className="section-headline">Recent articles</h2>
+          <About data={about.node} />
+          <div className="wrapper" id="recentWork">
+            <h2 className="section-headline">Recent Work</h2>
             <ul className="article-list">
               {posts.map(({ node }) => {
                 return (
                   <li key={node.slug}>
                     <ArticlePreview article={node} />
+                  </li>
+                )
+              })}
+            </ul>
+          </div>
+          <div className="wrapper">
+            <h2 className="section-headline">Skills</h2>
+            <ul className="article-list">
+              {posts.map(({ node }, index) => {
+                if (index > 0) return;
+                return (
+                  <li key={node.slug}>
+                    <Skills article={node} />
                   </li>
                 )
               })}

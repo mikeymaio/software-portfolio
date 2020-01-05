@@ -1,11 +1,8 @@
 {
-  "name": "gatsby-contentful-starter",
-  "description": "Starter Contentful Gatsby Blog",
+  "name": "software-portfolio",
+  "description": "Michael Maio's Developer Portfolio",
   "version": "1.0.0",
-  "author": "Stefan Judis <stefanjudis@gmail.com>",
-  "bugs": {
-    "url": "https://github.com/contentful-userland/gatsby-contentful-starter/issues"
-  },
+  "author": "Michael Maio <michael.maio22@gmail.com>",
   "dependencies": {
     "gatsby-image": "^2.0.38",
     "gatsby-plugin-react-helmet": "^3.0.12",
@@ -17,7 +14,8 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.0",
-    "sharp": "^0.22.0"
+    "sharp": "^0.22.0",
+    "smooth-scroll": "^16.1.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
@@ -33,10 +31,9 @@
     "rimraf": "^2.6.3",
     "yargs-parser": "^13.0.0"
   },
-  "homepage": "https://github.com/contentful-userland/gatsby-contentful-starter#readme",
   "keywords": [
-    "gatsby",
-    "contentful"
+    "developer",
+    "engineer"
   ],
   "license": "MIT",
   "main": "n/a",
