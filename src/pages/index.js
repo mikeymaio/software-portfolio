@@ -7,6 +7,7 @@ import About from '../components/about'
 import Layout from '../components/layout'
 import ArticlePreview from '../components/article-preview'
 import Skills from '../components/skills'
+import SkillList from '../components/skillList'
 
 class RootIndex extends React.Component {
   render() {
@@ -14,6 +15,9 @@ class RootIndex extends React.Component {
     const posts = get(this, 'props.data.allContentfulBlogPost.edges')
     const [author] = get(this, 'props.data.allContentfulPerson.edges')
     const [about] = get(this, 'props.data.allContentfulAbout.edges');
+    const [skills] = get(this, 'props.data.allContentfulSkills.edges')
+
+    console.log('skills: ', skills);
 
     return (
       <Layout location={this.props.location} >
@@ -33,19 +37,7 @@ class RootIndex extends React.Component {
               })}
             </ul>
           </div>
-          <div className="wrapper">
-            <h2 className="section-headline">Skills</h2>
-            <ul className="article-list">
-              {posts.map(({ node }, index) => {
-                if (index > 0) return;
-                return (
-                  <li key={node.slug}>
-                    <Skills article={node} />
-                  </li>
-                )
-              })}
-            </ul>
-          </div>
+          <SkillList skills={skills.node} />
         </div>
       </Layout>
     )
@@ -91,10 +83,9 @@ export const pageQuery = graphql`
           title
           heroImage: image {
             fluid(
-              maxWidth: 1180
-              maxHeight: 480
+              maxWidth: 2000
               resizingBehavior: PAD
-              background: "rgb:000000"
+              background: "rgb:FFFFFF"
             ) {
               ...GatsbyContentfulFluid_tracedSVG
             }
@@ -110,6 +101,13 @@ export const pageQuery = graphql`
           description {
             description
           }
+        }
+      }
+    }
+    allContentfulSkills {
+      edges {
+        node {
+          skills
         }
       }
     }

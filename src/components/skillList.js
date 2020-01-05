@@ -6,10 +6,7 @@ import styles from './skills.list.module.css'
 
 import Chip from './chip'
 
-export default ({ skills }) => {
-  console.log('skills: ', skills);
-  // return null
-  return (
+export default ({ skills }) => (
   <div className="wrapper">
     <h2 className="section-headline">Skills</h2>
     <ul className={styles.skillsList}>
@@ -22,4 +19,4 @@ export default ({ skills }) => {
       })}
     </ul>
   </div>
-)}
+)
