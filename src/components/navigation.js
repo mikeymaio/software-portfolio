@@ -4,7 +4,9 @@ import styles from './navigation.module.css'
 
 if (typeof window !== "undefined") {
   // eslint-disable-next-line global-require
-  require("smooth-scroll")('a[href*="#"]')
+  require("smooth-scroll")('a[href*="#"]', {
+    offset: 60,
+  })
 }
 
 export default () => (
