@@ -7,7 +7,7 @@ import styles from './skills.list.module.css'
 import Chip from './chip'
 
 export default ({ skills }) => (
-  <div className="wrapper">
+  <div className="wrapper" id="skills">
     <h2 className="section-headline">Skills</h2>
     <ul className={styles.skillsList}>
       {skills.skills.map((skill, index) => {
