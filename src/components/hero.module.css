@@ -98,7 +98,19 @@
   /* height: 61.8vh;
   max-height: 400px; */
 
-  height: 85vh;
+  height: 65vh;
+}
+
+.heroImage img,
+.heroImage picture img {
+  object-position: right bottom !important;
+}
+
+@media only screen and (min-width: 768px) {
+  .heroImage {
+    /* height: 85vh; */
+    height: calc(100vh - 60px);
+  }
 }
 
 .heroDetails {
