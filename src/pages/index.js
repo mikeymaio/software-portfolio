@@ -8,6 +8,8 @@ import Layout from '../components/layout'
 import ArticlePreview from '../components/article-preview'
 import SkillList from '../components/skillList'
 
+import styles from './index.module.css'
+
 class RootIndex extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
@@ -16,11 +18,9 @@ class RootIndex extends React.Component {
     const [about] = get(this, 'props.data.allContentfulAbout.edges');
     const [skills] = get(this, 'props.data.allContentfulSkills.edges')
 
-    console.log('skills: ', skills);
-
     return (
       <Layout location={this.props.location} >
-        <div style={{ background: '#fff', paddingTop: 60 }}>
+        <div className={styles.wrapper}>
           <Helmet title={siteTitle} />
           <Hero data={author.node} />
           <About data={about.node} />
