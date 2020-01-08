@@ -7,12 +7,12 @@ export default props => {
     <div className={styles.socialWrapper}>
         {github && (
           <a href={github} target="_blank">
-            <img className={styles.socialIcon} src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="github" />
+            <img className={styles.socialIcon} src="/assets/icons/github-logo-light.png" alt="github" />
           </a>
         )}
         {linkedIn && (
           <a href={linkedIn} target="_blank">
-            <img className={styles.socialIcon} src="http://pngimg.com/uploads/linkedIn/linkedIn_PNG38.png" alt="github" />
+            <img className={styles.socialIcon} src="/assets/icons/linkedIn-logo.png" alt="linkedIn" />
           </a>
         )}
     </div>
