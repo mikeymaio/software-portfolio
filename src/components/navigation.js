@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'gatsby'
 import styles from './navigation.module.css'
-
-// import './navigation.module.css'
+import Fade from 'react-reveal/Fade';
 
 if (typeof window !== "undefined") {
   // eslint-disable-next-line global-require
@@ -13,19 +12,51 @@ if (typeof window !== "undefined") {
 
 export default () => {
   const [menuOpen, setMenuOpen] = useState(false)
+
+  // const [isTop, setIsTop] = useState(window.scrollY < window.innerHeight - 61);
+  const [isTop, setIsTop] = useState(null);
+
+  useEffect(() => {
+    handleScroll();
+    // setIsTop(window.scrollY < window.innerHeight - 61)
+    document.addEventListener('scroll', handleScroll);
+
+    return () => document.removeEventListener('scroll', handleScroll);
+  }, [])
+
+  function handleScroll() {
+    const top = window.scrollY < window.innerHeight - 61;
+    console.log('top: ', top);
+    if (top !== isTop) {
+      console.log('isTop: ', isTop);
+      console.log('top !== isTop');
+      setIsTop(top);
+    }
+  }
+
   function toggleMenu() {
-    console.log(!menuOpen);
     setMenuOpen(!menuOpen)
   }
+
   const mobileNavClassNames = [styles.mobileNavigation, menuOpen ? styles.menuOpen : ''].join(' ')
 
-  const burgerClassNames = [styles.burgerIcon, menuOpen ? styles.burgerOpen : ''].join(' ')
+  const burgerIconClassNames = [styles.navIcon, menuOpen ? styles.navIconOpen : ''].join(' ')
+
+  const navStyles = [styles.navContainer, !!isTop ? styles.navTop : ''].join(' ');
+
+  console.log('navStyles: ', navStyles);
 
 return (
-  <nav role="navigation" className={styles.navContainer}>
-    <button onClick={toggleMenu} className={burgerClassNames}>
-      &#9776;
+  <nav role="navigation" className={navStyles}>
+    <div className={styles.mobileContainer}>
+    <button onClick={toggleMenu} className={burgerIconClassNames}>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
     </button>
+    <h1 className={styles.navTitle}>Michael Maio</h1>
+    </div>
     <ul className={mobileNavClassNames}>
       <li className={styles.navigationItem} key="home">
         <Link to="/#home" onClick={toggleMenu}>Home</Link>
@@ -47,6 +78,7 @@ return (
       </li>
     </ul>
     <ul className={styles.navigation}>
+      <Fade left cascade duration={1500}>
       <li className={styles.navigationItem} key="home">
         <Link to="/#home">Home</Link>
       </li>
@@ -65,6 +97,7 @@ return (
       <li className={styles.navigationItem} key="contact">
         <Link to="/#contact">Contact</Link>
       </li>
+      </Fade>
     </ul>
   </nav>
 //   <div className={styles.nav}>
