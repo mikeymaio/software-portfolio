@@ -7,6 +7,7 @@ import About from '../components/about'
 import Layout from '../components/layout'
 import ArticlePreview from '../components/article-preview'
 import SkillList from '../components/skillList'
+import ContactForm from '../components/contact.form'
 
 import styles from './index.module.css'
 
@@ -17,6 +18,10 @@ class RootIndex extends React.Component {
     const [author] = get(this, 'props.data.allContentfulPerson.edges')
     const [about] = get(this, 'props.data.allContentfulAbout.edges');
     const [skills] = get(this, 'props.data.allContentfulSkills.edges')
+    const [contact] = get(this, 'props.data.allContentfulContactForm.edges')
+    const [social] = get(this, 'props.data.allContentfulSocialLinks.edges')
+
+    console.log('contact: ', contact);
 
     return (
       <Layout location={this.props.location} >
@@ -37,6 +42,7 @@ class RootIndex extends React.Component {
             </ul>
           </div>
           <SkillList skills={skills.node} />
+          {!!contact && <ContactForm contact={contact} social={social} />}
         </div>
       </Layout>
     )
@@ -107,6 +113,24 @@ export const pageQuery = graphql`
       edges {
         node {
           skills
+        }
+      }
+    }
+
+    allContentfulContactForm {
+      edges {
+        node {
+          title
+          showSocial
+        }
+      }
+    }
+
+    allContentfulSocialLinks {
+      edges {
+        node {
+          linkedIn
+          github
         }
       }
     }

@@ -25,12 +25,14 @@ export default (props) => {
 
   function scrollOnLoad() {
     if (window.location.hash) {
-      const scrollDestination = document.getElementById(window.location.hash.split('#')[1]).getBoundingClientRect().top
-
-      return window.scrollTo({
-        top: scrollDestination,
-        behavior: 'smooth'
-      });
+      const scrollEl = document.getElementById(window.location.hash.split('#')[1])
+      if (scrollEl) {
+        const scrollDestination = scrollEl.getBoundingClientRect().top
+        return window.scrollTo({
+          top: scrollDestination,
+          behavior: 'smooth'
+        });
+      }
     }
   }
 
