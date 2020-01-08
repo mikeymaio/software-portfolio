@@ -5,6 +5,7 @@ import Helmet from 'react-helmet'
 import Hero from '../components/hero'
 import About from '../components/about'
 import Layout from '../components/layout'
+import ProjectList from '../components/project.list'
 import ArticlePreview from '../components/article-preview'
 import SkillList from '../components/skillList'
 import ContactForm from '../components/contact.form'
@@ -15,6 +16,7 @@ class RootIndex extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const posts = get(this, 'props.data.allContentfulBlogPost.edges')
+    const projects = get(this, 'props.data.allContentfulProject.edges')
     const [author] = get(this, 'props.data.allContentfulPerson.edges')
     const [about] = get(this, 'props.data.allContentfulAbout.edges');
     const [skills] = get(this, 'props.data.allContentfulSkills.edges')
@@ -29,8 +31,21 @@ class RootIndex extends React.Component {
           <Helmet title={siteTitle} />
           <Hero data={author.node} />
           <About data={about.node} />
-          <div className="wrapper" id="recentWork">
+          <ProjectList projects={projects} />
+          {/* <div className="wrapper" id="recentWork">
             <h2 className="section-headline">Recent Work</h2>
+            <ul className="project-list">
+              {projects.map(({ node }) => {
+                return (
+                  // <li key={node.slug}>
+                    <Project project={node} />
+                  // </li>
+                )
+              })}
+            </ul>
+          </div> */}
+          {/* <div className="wrapper" id="articles">
+            <h2 className="section-headline">Articles</h2>
             <ul className="article-list">
               {posts.map(({ node }) => {
                 return (
@@ -40,7 +55,7 @@ class RootIndex extends React.Component {
                 )
               })}
             </ul>
-          </div>
+          </div> */}
           <SkillList skills={skills.node} />
           {!!contact && <ContactForm contact={contact} social={social} />}
         </div>
@@ -78,6 +93,26 @@ export const pageQuery = graphql`
         }
       }
     }
+    allContentfulProject(sort: { fields: [sortOrder], order: ASC }) {
+      edges {
+        node {
+          projectName
+          company
+          sortOrder
+          image {
+            fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
+             ...GatsbyContentfulFluid_tracedSVG
+            }
+          }
+          description
+          iosLink
+          androidLink
+          webLink
+          codeLink
+          technologies
+        }
+      }
+    }
     allContentfulPerson(filter: { contentful_id: { eq: "15jwOBqpxqSAOy2eOO4S0m" } }) {
       edges {
         node {
@@ -89,7 +124,7 @@ export const pageQuery = graphql`
           heroImage: image {
             fluid(
               maxWidth: 2000
-              resizingBehavior: PAD
+              resizingBehavior: FILL
               background: "rgb:FFFFFF"
             ) {
               ...GatsbyContentfulFluid_tracedSVG
