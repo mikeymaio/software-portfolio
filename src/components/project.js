@@ -25,9 +25,12 @@ export default ({ project }) => {
       </a>
     )
   }
+
   return (
   <div className={styles.project}>
-    <Img fluid={project.image.fluid} alt={project.projectName} />
+    {project.image && (
+      <Img fluid={project.image.fluid} alt={project.projectName} />
+    )}
     <div className={styles.projectContent}>
       <h3 className={styles.title}>
         {`${project.company} - ${project.projectName}`}

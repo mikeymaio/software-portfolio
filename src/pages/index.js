@@ -21,7 +21,7 @@ class RootIndex extends React.Component {
     const [about] = get(this, 'props.data.allContentfulAbout.edges');
     const [skills] = get(this, 'props.data.allContentfulSkills.edges')
     const [contact] = get(this, 'props.data.allContentfulContactForm.edges')
-    const [social] = get(this, 'props.data.allContentfulSocialLinks.edges');
+    const [social] = get(this, 'props.data.allContentfulSocialLinks.edges')
 
     return (
       <Layout location={this.props.location} >
@@ -30,18 +30,6 @@ class RootIndex extends React.Component {
           <Hero data={author.node} />
           <About data={about.node} />
           <ProjectList projects={projects} />
-          {/* <div className="wrapper" id="recentWork">
-            <h2 className="section-headline">Recent Work</h2>
-            <ul className="project-list">
-              {projects.map(({ node }) => {
-                return (
-                  // <li key={node.slug}>
-                    <Project project={node} />
-                  // </li>
-                )
-              })}
-            </ul>
-          </div> */}
           {/* <div className="wrapper" id="articles">
             <h2 className="section-headline">Articles</h2>
             <ul className="article-list">
