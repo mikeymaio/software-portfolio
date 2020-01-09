@@ -12,7 +12,7 @@ export default ({ project }) => {
     if (project.codeLink.toLowerCase() === 'private') {
       return (
         <div className={styles.disabledLink}>
-          <img className={styles.linkIcon} src="/assets/icons/code-icon.png" alt="view code" />
+          <img className={styles.linkIcon} src="/assets/icons/code-icon.png" alt="Code" />
           {/* <div className={styles.disabledOverlay} /> */}
           <small className={styles.tooltiptext}>code is private</small>
         </div>
@@ -21,23 +21,23 @@ export default ({ project }) => {
 
     return (
       <a href={project.codeLink} target="_blank">
-        <img className={styles.linkIcon} src="/assets/icons/code-icon.png" alt="view code" />
+        <img className={styles.linkIcon} src="/assets/icons/code-icon.png" alt="Code" />
       </a>
     )
   }
   return (
   <div className={styles.project}>
-    <Img alt="" fluid={project.image.fluid} />
+    <Img fluid={project.image.fluid} alt={project.projectName} />
     <div className={styles.projectContent}>
       <h3 className={styles.title}>
         {`${project.company} - ${project.projectName}`}
       </h3>
-      {/* <small>{project.publishDate}</small> */}
       <p>{project.description}</p>
+      <p className={styles.linksSectionHeader}>Links:</p>
       <div className={styles.linkContainer}>
         {project.webLink && (
           <a href={project.webLink} target="_blank">
-            <img className={styles.linkIcon} src="/assets/icons/browser-icon.png" alt="browser" />
+            <img className={styles.linkIcon} src="/assets/icons/browser-icon.png" alt="Browser" />
           </a>
         )}
         {project.iosLink && (
@@ -47,7 +47,7 @@ export default ({ project }) => {
         )}
         {project.androidLink && (
           <a href={project.androidLink} target="_blank">
-            <img className={styles.linkIcon} src="/assets/icons/android-icon.png" alt="android" />
+            <img className={styles.linkIcon} src="/assets/icons/android-icon.png" alt="Android" />
           </a>
         )}
         {renderCodeLink()}

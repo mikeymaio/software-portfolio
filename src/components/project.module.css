@@ -16,7 +16,7 @@
   /* margin: 10px 20px 10px 0; */
   /* margin: 10px 0; */
   margin-bottom: 20px;
-  padding: 10px;
+  /* padding: 10px; */
 
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
@@ -28,6 +28,7 @@
 
 .projectContent {
   padding: 10px 20px;
+  border-top: 1px solid #eee;
 }
 
 @media(min-width: 768px) {
@@ -118,3 +119,7 @@
 }
 
 .chipContainer {}
+
+.linksSectionHeader {
+  margin-bottom: 0;
+}
