@@ -21,9 +21,7 @@ class RootIndex extends React.Component {
     const [about] = get(this, 'props.data.allContentfulAbout.edges');
     const [skills] = get(this, 'props.data.allContentfulSkills.edges')
     const [contact] = get(this, 'props.data.allContentfulContactForm.edges')
-    const [social] = get(this, 'props.data.allContentfulSocialLinks.edges')
-
-    console.log('contact: ', contact);
+    const [social] = get(this, 'props.data.allContentfulSocialLinks.edges');
 
     return (
       <Layout location={this.props.location} >
