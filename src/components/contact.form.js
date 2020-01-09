@@ -8,7 +8,10 @@ export default props => {
 
   return (
     <div className={styles.contactContainer} id="contact">
-      <div className="wrapper">
+      <div className={styles.stars}></div>
+      <div className={styles.twinkling}></div>
+      {/* <div className={styles.clouds}></div> */}
+      <div className={['wrapper', styles.wrapper].join(' ')}>
         <h2 className="section-headline">{title}</h2>
         <div className={styles.formWrapper}>
           <form className={styles.form} name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
@@ -30,9 +33,9 @@ export default props => {
               <li>
                 <input type="submit" value="Send Message" className="special" />
               </li>
-              <li>
+              {/* <li>
                 <input type="reset" value="Clear" />
-              </li>
+              </li> */}
             </ul>
           </form>
           {showSocial && (
