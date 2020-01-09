@@ -42,13 +42,14 @@
 @media(min-width: 991px) {
   .project {
     /* width: calc(100% / 3 - 20px); */
-    width: calc(100% / 3 - 10px);
+    width: calc(100% / 3 - 20px);
   }
 }
 
 .linkContainer {
   display: flex;
   align-items: center;
+  margin-bottom: 15px;
   /* justify-content: space-between; */
 }
 
