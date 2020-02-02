@@ -2,13 +2,14 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
-import Hero from '../components/hero'
-import About from '../components/about'
 import Layout from '../components/layout'
-import ProjectList from '../components/project.list'
-import ArticlePreview from '../components/article-preview'
-import SkillList from '../components/skillList'
-import ContactForm from '../components/contact.form'
+import Hero from '../components/hero/hero'
+import About from '../components/about/about'
+import ProjectList from '../components/project/project.list'
+import ArticlePreview from '../components/article-preview/article-preview'
+import SkillList from '../components/skills/skillList'
+import ClientList from '../components/client/client.list'
+import ContactForm from '../components/contact/contact.form'
 
 import styles from './index.module.css'
 
@@ -17,12 +18,14 @@ class RootIndex extends React.Component {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const posts = get(this, 'props.data.allContentfulBlogPost.edges')
     const projects = get(this, 'props.data.allContentfulProject.edges')
+    const clients = get(this, 'props.data.allContentfulClient.edges')
     const [author] = get(this, 'props.data.allContentfulPerson.edges')
     const [about] = get(this, 'props.data.allContentfulAbout.edges');
     const [skills] = get(this, 'props.data.allContentfulSkills.edges')
     const [contact] = get(this, 'props.data.allContentfulContactForm.edges')
     const [social] = get(this, 'props.data.allContentfulSocialLinks.edges')
 
+    console.log('clients: ', clients);
     return (
       <Layout location={this.props.location} >
         <div className={styles.wrapper}>
@@ -42,6 +45,7 @@ class RootIndex extends React.Component {
               })}
             </ul>
           </div> */}
+          {/* <ClientList clients={clients} /> */}
           <SkillList skills={skills.node} />
           {!!contact && <ContactForm contact={contact} social={social} />}
         </div>
@@ -155,5 +159,23 @@ export const pageQuery = graphql`
         }
       }
     }
+
+    allContentfulClient {
+      edges {
+        node {
+          clientName
+          logo {
+            fluid(
+              maxWidth: 300
+              resizingBehavior: FILL
+              background: "rgb:FFFFFF"
+            ) {
+              ...GatsbyContentfulFluid_tracedSVG
+            }
+          }
+        }
+      }
+    }
+
   }
 `

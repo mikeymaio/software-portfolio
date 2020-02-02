@@ -4,7 +4,7 @@ import Img from 'gatsby-image'
 
 import styles from './skills.list.module.css'
 
-import Chip from './chip'
+import Chip from '../chip/chip'
 
 export default ({ skills }) => (
   <div className="wrapper" id="skills">

@@ -1,6 +1,6 @@
 .contactContainer {
   width: 100vw;
-  height: calc(100vh - 60px);
+  /* height: calc(100vh - 60px); */
   background-color: #1a1a1a;
   color: #fafafa;
   position: relative;
@@ -35,7 +35,7 @@
   padding: 20px;
   padding-top: 30px;
   background-color: rgba(250, 250, 250, 0.25);
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   border-radius: 4px;
 }
@@ -86,7 +86,7 @@ input[type="submit"] {
 
 
 
-
+/* 
 
 @keyframes move-twink-back {
   from {background-position:0 0;}
@@ -158,4 +158,4 @@ animation:move-twink-back 200s linear infinite;
 -o-animation:move-clouds-back 200s linear infinite;
 -webkit-animation:move-clouds-back 200s linear infinite;
 animation:move-clouds-back 200s linear infinite;
-}
+} */

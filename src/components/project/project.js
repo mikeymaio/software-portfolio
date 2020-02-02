@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 
 import styles from './project.module.css'
-import Chip from './chip'
+import Chip from '../chip/chip'
 
 export default ({ project }) => {
   function renderCodeLink() {
@@ -38,17 +38,17 @@ export default ({ project }) => {
       <p>{project.description}</p>
       <p className={styles.linksSectionHeader}>Links:</p>
       <div className={styles.linkContainer}>
-        {project.webLink && (
+        {project.webLink && project.webLink !== '0' && (
           <a href={project.webLink} target="_blank">
             <img className={styles.linkIcon} src="/assets/icons/browser-icon.png" alt="Browser" />
           </a>
         )}
-        {project.iosLink && (
+        {project.iosLink && project.iosLink !== '0' && (
           <a href={project.iosLink} target="_blank">
             <img className={styles.linkIcon} src="/assets/icons/ios-icon.png" alt="iOS" />
           </a>
         )}
-        {project.androidLink && (
+        {project.androidLink && project.androidLink !== '0' && (
           <a href={project.androidLink} target="_blank">
             <img className={styles.linkIcon} src="/assets/icons/android-icon.png" alt="Android" />
           </a>

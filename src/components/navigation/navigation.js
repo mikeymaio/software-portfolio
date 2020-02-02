@@ -28,10 +28,11 @@ export default (props) => {
       const scrollEl = document.getElementById(window.location.hash.split('#')[1])
       if (scrollEl) {
         const scrollDestination = scrollEl.getBoundingClientRect().top
-        return window.scrollTo({
+        window.scrollTo({
           top: scrollDestination,
           behavior: 'smooth'
         });
+        return handleScroll()
       }
     }
   }
@@ -51,7 +52,7 @@ export default (props) => {
 
   const burgerIconClassNames = [styles.navIcon, menuOpen ? styles.navIconOpen : ''].join(' ')
 
-  const navStyles = [styles.navContainer, !isScrolled ? styles.navTop : ''].join(' ');
+  const navStyles = [styles.navContainer, !isScrolled && !menuOpen ? styles.navTop : ''].join(' ');
 
   return (
     <nav role="navigation" className={navStyles}>

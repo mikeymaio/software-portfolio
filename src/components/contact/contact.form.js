@@ -1,5 +1,5 @@
 import React from 'react';
-import Social from './social';
+import Social from '../social/social';
 
 import styles from './contact.form.module.css';
 
@@ -8,8 +8,8 @@ export default props => {
 
   return (
     <div className={styles.contactContainer} id="contact">
-      <div className={styles.stars}></div>
-      <div className={styles.twinkling}></div>
+      {/* <div className={styles.stars}></div> */}
+      {/* <div className={styles.twinkling}></div> */}
       {/* <div className={styles.clouds}></div> */}
       <div className={['wrapper', styles.wrapper].join(' ')}>
         <h2 className="section-headline">{title}</h2>
@@ -31,7 +31,7 @@ export default props => {
             </div>
             <ul className={styles.actions}>
               <li>
-                <input type="submit" value="Send Message" className="special" />
+                <input type="submit" value="SEND" className="special" />
               </li>
               {/* <li>
                 <input type="reset" value="Clear" />

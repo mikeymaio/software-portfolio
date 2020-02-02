@@ -1,0 +1,22 @@
+.previewTitle {
+  font-size: 1.5em;
+}
+
+.clientList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline-start: 0;
+}
+
+.clientList li {
+  width: 20vw;
+  height: auto;
+  max-height: 20vw;
+  list-style: none;
+  margin: 10px;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+}

@@ -47,7 +47,8 @@ a {
  * article grid
  */
 .article-list,
-.project-list {
+.project-list,
+.clientList {
   margin: 0;
   padding: 0;
   list-style: none;
