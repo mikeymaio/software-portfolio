@@ -13,11 +13,7 @@
 .project {
   border-radius: 4px;
   width: 100%;
-  /* margin: 10px 20px 10px 0; */
-  /* margin: 10px 0; */
   margin-bottom: 20px;
-  /* padding: 10px; */
-
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
@@ -35,8 +31,6 @@
   border-top: 1px solid #eee;
   display: flex;
   flex-direction: column;
-  /* flex: 1; */
-  /* height: 55%; */
 }
 
 .projectContent > p:first-of-type {
@@ -47,14 +41,11 @@
 @media(min-width: 768px) {
   .project {
     width: calc(50% - 10px);
-    /* margin: 10px 20px 10px 0; */
-    /* margin: 10px auto; */
   }
 }
 
 @media(min-width: 991px) {
   .project {
-    /* width: calc(100% / 3 - 20px); */
     width: calc(100% / 3 - 20px);
   }
 }
@@ -63,7 +54,6 @@
   display: flex;
   align-items: center;
   margin-bottom: 15px;
-  /* justify-content: space-between; */
 }
 
 .linkContainer a,
@@ -93,7 +83,6 @@
 .disabledLink {
   position: relative;
   display: inline-block;
-  /* border-bottom: 1px dotted black; */
 }
 
 /* Tooltip text */
@@ -105,34 +94,29 @@
   text-align: center;
   padding: 5px 0;
   border-radius: 6px;
- 
-  /* Position the tooltip text - see examples below! */
   position: absolute;
   z-index: 1;
 }
 
-/* Show the tooltip text when you mouse over the tooltip container */
 .disabledLink:hover .tooltiptext {
   visibility: visible;
 
   width: 120px;
   bottom: calc(100% + 10px);
   left: 50%;
-  margin-left: -60px; /* Use half of the width (120/2 = 60), to center the tooltip */
+  margin-left: -60px;
 }
 
 .disabledLink .tooltiptext::after {
   content: " ";
   position: absolute;
-  top: 100%; /* At the bottom of the tooltip */
+  top: 100%;
   left: 50%;
   margin-left: -5px;
   border-width: 5px;
   border-style: solid;
   border-color: black transparent transparent transparent;
 }
-
-.chipContainer {}
 
 .linksSectionHeader {
   margin-bottom: 0;
