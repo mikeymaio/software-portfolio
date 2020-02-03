@@ -20,7 +20,7 @@ module.exports = {
   siteMetadata: {
     title: 'Michael Maio\'s Portfolio',
   },
-  pathPrefix: '/',
+  pathPrefix: '/gatsby-contentful-starter',
   plugins: [
     'gatsby-transformer-remark',
     'gatsby-transformer-sharp',
