@@ -25,7 +25,6 @@ class RootIndex extends React.Component {
     const [contact] = get(this, 'props.data.allContentfulContactForm.edges')
     const [social] = get(this, 'props.data.allContentfulSocialLinks.edges')
 
-    console.log('clients: ', clients);
     return (
       <Layout location={this.props.location} >
         <div className={styles.wrapper}>
@@ -90,7 +89,7 @@ export const pageQuery = graphql`
           company
           sortOrder
           image {
-            fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: FILL) {
+            fluid(maxWidth: 400, maxHeight: 300, resizingBehavior: FILL) {
              ...GatsbyContentfulFluid_tracedSVG
             }
           }

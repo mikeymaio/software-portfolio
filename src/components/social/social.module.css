@@ -2,12 +2,10 @@
   display: flex;
   width: 100%;
   justify-content: center;
-  /* background: #1a1a1a; */
-  /* padding: 10px; */
 }
 
 .socialIcon {
-  height: 75px;
+  height: 60px;
   width: auto;
-  margin-right: 10px;
+  margin-right: 20px;
 }

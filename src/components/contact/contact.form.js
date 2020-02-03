@@ -8,9 +8,6 @@ export default props => {
 
   return (
     <div className={styles.contactContainer} id="contact">
-      {/* <div className={styles.stars}></div> */}
-      {/* <div className={styles.twinkling}></div> */}
-      {/* <div className={styles.clouds}></div> */}
       <div className={['wrapper', styles.wrapper].join(' ')}>
         <h2 className="section-headline">{title}</h2>
         <div className={styles.formWrapper}>
@@ -33,9 +30,6 @@ export default props => {
               <li>
                 <input type="submit" value="SEND" className="special" />
               </li>
-              {/* <li>
-                <input type="reset" value="Clear" />
-              </li> */}
             </ul>
           </form>
           {showSocial && (

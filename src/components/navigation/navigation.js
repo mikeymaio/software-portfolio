@@ -75,14 +75,17 @@ export default (props) => {
         <li className={styles.navigationItem} key="recentWork">
           <Link to="/#recentWork" onClick={toggleMenu}>Recent Work</Link>
         </li>
-        <li className={styles.navigationItem} key="clients">
+        {/* <li className={styles.navigationItem} key="clients">
           <Link to="/#clients" onClick={toggleMenu}>Clients</Link>
-        </li>
+        </li> */}
         <li className={styles.navigationItem} key="skills">
           <Link to="/#skills" onClick={toggleMenu}>Skills</Link>
         </li>
         <li className={styles.navigationItem} key="contact">
           <Link to="/#contact" onClick={toggleMenu}>Contact</Link>
+        </li>
+        <li className={styles.navigationItem} key="resume">
+          <a href="https://drive.google.com/open?id=1IEFw3S6h1um_-j__nzleVyw7HaAmwoBO" target="_blank" onClick={toggleMenu}>Resume</a>
         </li>
       </ul>
       <ul className={styles.navigation}>
@@ -96,14 +99,17 @@ export default (props) => {
         <li className={styles.navigationItem} key="recentWork">
           <Link to="/#recentWork">Recent Work</Link>
         </li>
-        <li className={styles.navigationItem} key="clients">
+        {/* <li className={styles.navigationItem} key="clients">
           <Link to="/#clients">Clients</Link>
-        </li>
+        </li> */}
         <li className={styles.navigationItem} key="skills">
           <Link to="/#skills">Skills</Link>
         </li>
         <li className={styles.navigationItem} key="contact">
           <Link to="/#contact">Contact</Link>
+        </li>
+        <li className={styles.navigationItem} key="resume">
+          <a href="https://drive.google.com/open?id=1IEFw3S6h1um_-j__nzleVyw7HaAmwoBO" target="_blank" onClick={toggleMenu}>Resume</a>
         </li>
         </Fade>
       </ul>
