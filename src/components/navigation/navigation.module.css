@@ -102,8 +102,9 @@
 }
 
 /* Icon 1 */
-
 .navIcon {
+  background: transparent;
+  border: none;
   width: 30px;
   position: absolute;
   top: 20px;
