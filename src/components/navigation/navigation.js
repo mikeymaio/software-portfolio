@@ -85,7 +85,7 @@ export default (props) => {
           <Link to="/#contact" onClick={toggleMenu}>Contact</Link>
         </li>
         <li className={styles.navigationItem} key="resume">
-          <a href="https://drive.google.com/open?id=1IEFw3S6h1um_-j__nzleVyw7HaAmwoBO" target="_blank" onClick={toggleMenu}>Resume</a>
+          <a href="https://drive.google.com/open?id=1QqyyLa9QidO_uLFXMTPIGs75s-kgNnsX" target="_blank" onClick={toggleMenu}>Resume</a>
         </li>
       </ul>
       <ul className={styles.navigation}>
@@ -109,7 +109,7 @@ export default (props) => {
           <Link to="/#contact">Contact</Link>
         </li>
         <li className={styles.navigationItem} key="resume">
-          <a href="https://drive.google.com/open?id=1IEFw3S6h1um_-j__nzleVyw7HaAmwoBO" target="_blank" onClick={toggleMenu}>Resume</a>
+          <a href="https://drive.google.com/open?id=1QqyyLa9QidO_uLFXMTPIGs75s-kgNnsX" target="_blank" onClick={toggleMenu}>Resume</a>
         </li>
         </Fade>
       </ul>
