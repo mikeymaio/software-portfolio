@@ -119,6 +119,7 @@
   transition: .5s ease-in-out;
   cursor: pointer;
   padding: 3px;
+  outline: none;
 }
 
 .navIcon span{

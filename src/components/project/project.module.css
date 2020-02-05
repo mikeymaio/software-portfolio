@@ -33,6 +33,11 @@
   flex-direction: column;
 }
 
+.projectContent h3 {
+  margin-bottom: 0;
+  font-weight: bold;
+}
+
 .projectContent > p:first-of-type {
   display: flex;
   flex: 1;
@@ -119,5 +124,5 @@
 }
 
 .linksSectionHeader {
-  margin-bottom: 0;
+  margin: 0;
 }

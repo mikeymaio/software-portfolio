@@ -36,7 +36,7 @@ export default ({ project }) => {
         {`${project.company} - ${project.projectName}`}
       </h3>
       <p>{project.description}</p>
-      <p className={styles.linksSectionHeader}>Links:</p>
+      {/* <p className={styles.linksSectionHeader}>Links:</p> */}
       <div className={styles.linkContainer}>
         {project.webLink && project.webLink !== '0' && (
           <a href={project.webLink} target="_blank">
