@@ -49,6 +49,13 @@
 .navigationItem a {
   /* color: currentColor; */
   color: #fafafa;
+  text-decoration: none;
+}
+
+.navigationItem a:hover {
+  /* color: currentColor; */
+  color: #fafafa;
+  text-decoration: underline;
 }
 
 
