@@ -38,22 +38,28 @@
 }
 
 
-
-
 .navigationItem {
   display: inline-flex;
   align-items: center;
-  margin: 0 1em;
+  margin: 0.5em 1em;
+}
+
+.navigationItem:first-of-type {
+  margin-top: 0;
+}
+
+@media only screen and (min-width: 991px) {
+  .navigationItem {
+    margin: 0 1em;
+  }
 }
 
 .navigationItem a {
-  /* color: currentColor; */
   color: #fafafa;
   text-decoration: none;
 }
 
 .navigationItem a:hover {
-  /* color: currentColor; */
   color: #fafafa;
   text-decoration: underline;
 }
@@ -82,7 +88,7 @@
 }
 
 .menuOpen {
-  max-height: 30vh;
+  max-height: 35vh;
   padding: 20px 0;
 }
 
