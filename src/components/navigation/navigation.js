@@ -75,9 +75,6 @@ export default (props) => {
         <li className={styles.navigationItem} key="recentWork">
           <Link to="/#recentWork" onClick={toggleMenu}>Recent Work</Link>
         </li>
-        {/* <li className={styles.navigationItem} key="clients">
-          <Link to="/#clients" onClick={toggleMenu}>Clients</Link>
-        </li> */}
         <li className={styles.navigationItem} key="skills">
           <Link to="/#skills" onClick={toggleMenu}>Skills</Link>
         </li>
@@ -99,9 +96,6 @@ export default (props) => {
         <li className={styles.navigationItem} key="recentWork">
           <Link to="/#recentWork">Recent Work</Link>
         </li>
-        {/* <li className={styles.navigationItem} key="clients">
-          <Link to="/#clients">Clients</Link>
-        </li> */}
         <li className={styles.navigationItem} key="skills">
           <Link to="/#skills">Skills</Link>
         </li>

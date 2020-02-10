@@ -6,18 +6,12 @@
 }
 
 .heroImage {
-  height: 65vh;
+  height: 100vh;
 }
 
 .heroImage img,
 .heroImage picture img {
   object-position: right bottom !important;
-}
-
-@media only screen and (min-width: 768px) {
-  .heroImage {
-    height: 100vh;
-  }
 }
 
 .heroDetails {

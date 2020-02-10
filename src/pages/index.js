@@ -1,29 +1,26 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import get from 'lodash/get'
-import Helmet from 'react-helmet'
-import Layout from '../components/layout'
-import Hero from '../components/hero/hero'
-import About from '../components/about/about'
-import ProjectList from '../components/project/project.list'
-import ArticlePreview from '../components/article-preview/article-preview'
-import SkillList from '../components/skills/skillList'
-import ClientList from '../components/client/client.list'
-import ContactForm from '../components/contact/contact.form'
+import React from 'react';
+import { graphql } from 'gatsby';
+import get from 'lodash/get';
+import Helmet from 'react-helmet';
+import Layout from '../components/layout';
+import Hero from '../components/hero/hero';
+import About from '../components/about/about';
+import ProjectList from '../components/project/project.list';
+import ArticlePreview from '../components/article-preview/article-preview';
+import SkillList from '../components/skills/skillList';
+import ContactForm from '../components/contact/contact.form';
 
-import styles from './index.module.css'
+import styles from './index.module.css';
 
 class RootIndex extends React.Component {
   render() {
-    const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const posts = get(this, 'props.data.allContentfulBlogPost.edges')
-    const projects = get(this, 'props.data.allContentfulProject.edges')
-    const clients = get(this, 'props.data.allContentfulClient.edges')
-    const [author] = get(this, 'props.data.allContentfulPerson.edges')
+    const siteTitle = get(this, 'props.data.site.siteMetadata.title');
+    const projects = get(this, 'props.data.allContentfulProject.edges');
+    const [author] = get(this, 'props.data.allContentfulPerson.edges');
     const [about] = get(this, 'props.data.allContentfulAbout.edges');
-    const [skills] = get(this, 'props.data.allContentfulSkills.edges')
-    const [contact] = get(this, 'props.data.allContentfulContactForm.edges')
-    const [social] = get(this, 'props.data.allContentfulSocialLinks.edges')
+    const [skills] = get(this, 'props.data.allContentfulSkills.edges');
+    const [contact] = get(this, 'props.data.allContentfulContactForm.edges');
+    const [social] = get(this, 'props.data.allContentfulSocialLinks.edges');
 
     return (
       <Layout location={this.props.location} >
@@ -32,19 +29,6 @@ class RootIndex extends React.Component {
           <Hero data={author.node} />
           <About data={about.node} />
           <ProjectList projects={projects} />
-          {/* <div className="wrapper" id="articles">
-            <h2 className="section-headline">Articles</h2>
-            <ul className="article-list">
-              {posts.map(({ node }) => {
-                return (
-                  <li key={node.slug}>
-                    <ArticlePreview article={node} />
-                  </li>
-                )
-              })}
-            </ul>
-          </div> */}
-          {/* <ClientList clients={clients} /> */}
           <SkillList skills={skills.node} />
           {!!contact && <ContactForm contact={contact} social={social} />}
         </div>
@@ -60,26 +44,6 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
-      }
-    }
-    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
-      edges {
-        node {
-          title
-          slug
-          publishDate(formatString: "MMMM Do, YYYY")
-          tags
-          heroImage {
-            fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
-             ...GatsbyContentfulFluid_tracedSVG
-            }
-          }
-          description {
-            childMarkdownRemark {
-              html
-            }
-          }
-        }
       }
     }
     allContentfulProject(sort: { fields: [sortOrder], order: ASC }) {
@@ -158,23 +122,5 @@ export const pageQuery = graphql`
         }
       }
     }
-
-    allContentfulClient {
-      edges {
-        node {
-          clientName
-          logo {
-            fluid(
-              maxWidth: 300
-              resizingBehavior: FILL
-              background: "rgb:FFFFFF"
-            ) {
-              ...GatsbyContentfulFluid_tracedSVG
-            }
-          }
-        }
-      }
-    }
-
   }
-`
+`;

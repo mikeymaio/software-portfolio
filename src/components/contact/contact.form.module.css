@@ -3,6 +3,7 @@
   background-color: #1a1a1a;
   color: #fafafa;
   position: relative;
+  height: calc(100vh - 50px);
 }
 
 .contactContainer .wrapper {
