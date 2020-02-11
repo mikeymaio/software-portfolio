@@ -4,7 +4,7 @@
   right: 0;
   left: 0;
   z-index: 10;
-  background-color: #1a1a1a;
+  background-color: #0E0E0E;
   min-height: 60px;
 
   transition: all 0.75s ease;
@@ -48,7 +48,7 @@
   margin-top: 0;
 }
 
-@media only screen and (min-width: 991px) {
+@media only screen and (min-width: 768px) {
   .navigationItem {
     margin: 0 1em;
   }

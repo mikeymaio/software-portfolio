@@ -17,11 +17,22 @@ export default (props) => {
   useEffect(() => {
     scrollOnLoad();
     handleScroll();
+    handleResize();
 
     document.addEventListener('scroll', handleScroll);
+    document.addEventListener('resize', handleResize);
 
-    return () => document.removeEventListener('scroll', handleScroll);
+    return () => {
+      document.removeEventListener('scroll', handleScroll)
+      document.removeEventListener('resize', handleResize)
+    };
   }, [])
+
+  function handleResize() {
+      const docHeight = window.innerHeight;
+      const hero = document.getElementById('home');
+      hero.style.height = docHeight;
+    };
 
   function scrollOnLoad() {
     if (window.location.hash) {

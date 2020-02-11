@@ -9,6 +9,7 @@ import ProjectList from '../components/project/project.list';
 import ArticlePreview from '../components/article-preview/article-preview';
 import SkillList from '../components/skills/skillList';
 import ContactForm from '../components/contact/contact.form';
+import Footer from '../components/footer/footer';
 
 import styles from './index.module.css';
 
@@ -25,12 +26,15 @@ class RootIndex extends React.Component {
     return (
       <Layout location={this.props.location} >
         <div className={styles.wrapper}>
-          <Helmet title={siteTitle} />
+          <Helmet title={siteTitle}>
+            <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+          </Helmet>
           <Hero data={author.node} />
           <About data={about.node} />
           <ProjectList projects={projects} />
           <SkillList skills={skills.node} />
           {!!contact && <ContactForm contact={contact} social={social} />}
+          <Footer social={social} />
         </div>
       </Layout>
     )
@@ -110,6 +114,15 @@ export const pageQuery = graphql`
         node {
           title
           showSocial
+          backgroundImage {
+            fluid(
+              maxWidth: 2000
+              resizingBehavior: FILL
+              background: "rgb:FFFFFF"
+            ) {
+              ...GatsbyContentfulFluid_tracedSVG
+            }
+          }
         }
       }
     }
@@ -119,6 +132,7 @@ export const pageQuery = graphql`
         node {
           linkedIn
           github
+          instagram
         }
       }
     }

@@ -4,8 +4,70 @@
   justify-content: center;
 }
 
-.socialIcon {
-  height: 60px;
-  width: auto;
+.socialLink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 54px;
+  width: 54px;
+  border-radius: 50%;
+  text-decoration: none;
+  background: black;
   margin-right: 20px;
+  transition: all 0.33s ease-in-out;
+}
+
+.socialLinkLinkedIn {
+  background: #0070C0;
+}
+
+.socialLinkGitHub {
+  background: #000;
+  border: 1px solid white;
+}
+
+.socialLink > i {
+  font-size: 32px;
+  color: white;
+}
+
+.socialLinkGitHub > i {
+  font-size: 48px;
+}
+
+.socialLink:hover,
+.socialLink:focus {
+  background: white;
+}
+
+.socialLinkIG,
+.socialLinkIG:hover,
+.socialLinkIG:focus {
+  background: transparent;
+}
+
+.socialLinkLinkedIn:hover > i,
+.socialLinkLinkedIn:focus > i {
+  color: #0070C0;
+}
+
+.socialLinkGitHub:hover > i,
+.socialLinkGitHub:focus > i {
+  color: #0E0E0E;
+}
+
+
+.socialLinkIG > i {
+  background: pink;
+	background: -webkit-radial-gradient(33% 100% circle, #515ECF 4%, #9B36B7 30%, #D92E7F 62%, #F15245 85%, #FED373);
+	background: radial-gradient(circle at 33% 100%, #ff3be7 4%, #ff3be7 28%, #03ffe8 62%, #F15245 85%, #FED373);
+	-webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 54px;
+}
+.socialLinkIG:hover > i {
+  background: -webkit-radial-gradient(33% 100% circle, #FED373 4%, #F15245 30%, #D92E7F 62%, #9B36B7 85%, #515ECF);
+  background: radial-gradient(circle at 33% 100%, #FED373 4%, #F15245 30%, #D92E7F 62%, #9B36B7 85%, #515ECF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

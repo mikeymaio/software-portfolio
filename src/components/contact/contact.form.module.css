@@ -1,9 +1,15 @@
 .contactContainer {
   width: 100vw;
-  background-color: #1a1a1a;
+  background-color: #0E0E0E;
   color: #fafafa;
   position: relative;
-  height: calc(100vh - 50px);
+  min-height: calc(100vh - 50px);
+}
+
+.content {
+  background: rgba(0, 0, 0, 0.25);
+  position: relative;
+  min-height: calc(100vh - 50px);
 }
 
 .contactContainer .wrapper {
@@ -32,7 +38,8 @@
   width: 90%;
   padding: 20px;
   padding-top: 30px;
-  background-color: rgba(250, 250, 250, 0.25);
+  /* background-color: rgba(250, 250, 250, 0.25); */
+  background-color: rgba(0, 0, 0, 0.7);
   margin-bottom: 40px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   border-radius: 4px;
@@ -74,4 +81,10 @@ input[type="submit"] {
 .actions > li {
   list-style: none;
   margin: 10px;
+}
+
+.backgroundImage {
+  position: absolute;
+  width: 100vw;
+  height: 100%;
 }
