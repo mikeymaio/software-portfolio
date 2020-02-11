@@ -1,0 +1,7 @@
+.footer {
+  position: absolute;
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent, #0E0E0E);
+  width: 100vw;
+  padding: 20px;
+}
