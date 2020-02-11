@@ -22,9 +22,7 @@ export default (props) => {
 
     window.addEventListener('scroll', handleScroll);
 
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, [])
 
   function handleResize() {
@@ -43,7 +41,7 @@ export default (props) => {
     if (window.location.hash) {
       const scrollEl = document.getElementById(window.location.hash.split('#')[1])
       if (scrollEl) {
-        const scrollDestination = scrollEl.getBoundingClientRect().top
+        const scrollDestination = scrollEl.getBoundingClientRect().top - 61;
         window.scrollTo({
           top: scrollDestination,
           behavior: 'smooth'
