@@ -20,20 +20,26 @@ export default (props) => {
     handleResize();
 
     window.addEventListener('scroll', handleScroll);
-    window.addEventListener('resize', handleResize);
 
     return () => {
       window.removeEventListener('scroll', handleScroll)
-      window.removeEventListener('resize', handleResize)
     };
   }, [])
 
+  function iOSSafari(userAgent) {
+    return /iP(ad|od|hone)/i.test(userAgent) && /WebKit/i.test(userAgent) && !(/(CriOS|FxiOS|OPiOS|mercury)/i.test(userAgent));
+  }
+
   function handleResize() {
-    const docHeight = window.innerHeight;
+    const isIosSafari = iOSSafari(window.navigator.userAgent)
 
-    const heroImageContainer = document.getElementById('home').firstElementChild;
+    if (isIosSafari) {
+      const docHeight = window.innerHeight;
 
-    heroImageContainer.style.height = `${docHeight}px`;
+      const heroImageContainer = document.getElementById('home').firstElementChild;
+
+      heroImageContainer.style.height = `${docHeight}px`;
+    }
   };
 
   function scrollOnLoad() {

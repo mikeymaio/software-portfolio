@@ -14,12 +14,12 @@ export default ({ data }) => (
     />
     <div className={styles.heroDetails}>
       <h1 className={styles.heroHeadline}>
-        <Zoom left cascade duration={2000}>
+        <Zoom left cascade={window.matchMedia('(min-width: 768px)').matches} duration={2000}>
           {data.title}
         </Zoom>
       </h1>
       <h2>
-        <Zoom right cascade duration={2500}>
+        <Zoom right cascade={window.matchMedia('(min-width: 768px)').matches} duration={2500}>
           {data.shortBio.shortBio}
         </Zoom>
       </h2>
