@@ -19,20 +19,22 @@ export default (props) => {
     handleScroll();
     handleResize();
 
-    document.addEventListener('scroll', handleScroll);
-    document.addEventListener('resize', handleResize);
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleResize);
 
     return () => {
-      document.removeEventListener('scroll', handleScroll)
-      document.removeEventListener('resize', handleResize)
+      window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('resize', handleResize)
     };
   }, [])
 
   function handleResize() {
-      const docHeight = window.innerHeight;
-      const hero = document.getElementById('home');
-      hero.style.height = docHeight;
-    };
+    const docHeight = window.innerHeight;
+
+    const heroImageContainer = document.getElementById('home').firstElementChild;
+
+    heroImageContainer.style.height = `${docHeight}px`;
+  };
 
   function scrollOnLoad() {
     if (window.location.hash) {
