@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react'
-import { Link } from 'gatsby'
-import styles from './navigation.module.css'
+import React, { useState, useEffect } from 'react';
+import { Link } from 'gatsby';
 import Fade from 'react-reveal/Fade';
+import styles from './navigation.module.css';
+import { iOSSafari } from '../../utils';
 
 if (typeof window !== "undefined") {
   // eslint-disable-next-line global-require
@@ -25,10 +26,6 @@ export default (props) => {
       window.removeEventListener('scroll', handleScroll)
     };
   }, [])
-
-  function iOSSafari(userAgent) {
-    return /iP(ad|od|hone)/i.test(userAgent) && /WebKit/i.test(userAgent) && !(/(CriOS|FxiOS|OPiOS|mercury)/i.test(userAgent));
-  }
 
   function handleResize() {
     const isIosSafari = iOSSafari(window.navigator.userAgent)
