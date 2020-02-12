@@ -37,7 +37,7 @@ export default props => {
                 <textarea name="message" id="message" rows="6" />
               </div>
               <ul className={styles.actions}>
-                <li>
+                <li key="submit">
                   <input type="submit" value="SEND" className="special" />
                 </li>
               </ul>

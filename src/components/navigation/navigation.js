@@ -80,22 +80,22 @@ export default (props) => {
       <h1 className={styles.navTitle}>Michael Maio</h1>
       </div>
       <ul className={mobileNavClassNames}>
-        <li className={styles.navigationItem} key="home">
+        <li className={styles.navigationItem} key="homeMobile">
           <Link to="/#home" onClick={toggleMenu}>Home</Link>
         </li>
-        <li className={styles.navigationItem} key="about">
+        <li className={styles.navigationItem} key="aboutMobile">
           <Link to="/#about" onClick={toggleMenu}>About</Link>
         </li>
-        <li className={styles.navigationItem} key="recentWork">
+        <li className={styles.navigationItem} key="recentWorkMobile">
           <Link to="/#recentWork" onClick={toggleMenu}>Recent Work</Link>
         </li>
-        <li className={styles.navigationItem} key="skills">
+        <li className={styles.navigationItem} key="skillsMobile">
           <Link to="/#skills" onClick={toggleMenu}>Skills</Link>
         </li>
-        <li className={styles.navigationItem} key="contact">
+        <li className={styles.navigationItem} key="contactMobile">
           <Link to="/#contact" onClick={toggleMenu}>Contact</Link>
         </li>
-        <li className={styles.navigationItem} key="resume">
+        <li className={styles.navigationItem} key="resumeMobile">
           <a href="https://drive.google.com/open?id=1QqyyLa9QidO_uLFXMTPIGs75s-kgNnsX" target="_blank" onClick={toggleMenu}>Resume</a>
         </li>
       </ul>

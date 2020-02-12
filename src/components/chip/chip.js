@@ -4,8 +4,8 @@ import Img from 'gatsby-image'
 
 import styles from './chip.module.css'
 
-export default ({ chip }) => (
-  <p className={styles.chip} key={chip}>
+export default ({ chip, style }) => (
+  <p className={[styles.chip, style].join(' ')}>
     {chip}
   </p>
 )

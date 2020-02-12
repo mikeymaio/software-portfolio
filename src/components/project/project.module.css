@@ -36,6 +36,7 @@
 .projectContent h3 {
   margin-bottom: 0;
   font-weight: bold;
+  font-family: "Montserrat", "Avenir", Tahoma, Arial, Helvetica, sans-serif;
 }
 
 .projectContent > p:first-of-type {

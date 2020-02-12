@@ -28,6 +28,10 @@ class RootIndex extends React.Component {
         <div className={styles.wrapper}>
           <Helmet title={siteTitle}>
             <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+
+            <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet" />
+
+            <link href="https://fonts.googleapis.com/css?family=Sriracha&display=swap" rel="stylesheet" />
           </Helmet>
           <Hero data={author.node} />
           <About data={about.node} />
@@ -104,7 +108,9 @@ export const pageQuery = graphql`
     allContentfulSkills {
       edges {
         node {
-          skills
+          frontend
+          backend
+          other
         }
       }
     }

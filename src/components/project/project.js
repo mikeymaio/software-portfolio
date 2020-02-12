@@ -13,7 +13,6 @@ export default ({ project }) => {
       return (
         <div className={styles.disabledLink}>
           <img className={styles.linkIcon} src="/assets/icons/code-icon.png" alt="Code" />
-          {/* <div className={styles.disabledOverlay} /> */}
           <small className={styles.tooltiptext}>code is private</small>
         </div>
       )
@@ -36,7 +35,6 @@ export default ({ project }) => {
         {`${project.company} - ${project.projectName}`}
       </h3>
       <p>{project.description}</p>
-      {/* <p className={styles.linksSectionHeader}>Links:</p> */}
       <div className={styles.linkContainer}>
         {project.webLink && project.webLink !== '0' && (
           <a href={project.webLink} target="_blank">
@@ -57,7 +55,7 @@ export default ({ project }) => {
       </div>
       <div className={styles.chipContainer}>
         {project.technologies && project.technologies.map(tag => (
-          <Chip chip={tag} />
+          <Chip chip={tag} key={tag} />
         ))}
       </div>
     </div>

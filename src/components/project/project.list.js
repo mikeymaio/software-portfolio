@@ -9,11 +9,9 @@ export default props => {
     <div className="wrapper" id="recentWork">
       <h2 className="section-headline">Recent Work</h2>
       <ul className={styles.projectList}>
-        {projects.map(({ node }) => {
+        {projects.map(({ node, index }) => {
           return (
-            // <li key={node.slug}>
-              <Project project={node} />
-            // </li>
+            <Project project={node} key={node.projectName + index} />
           )
         })}
       </ul>
