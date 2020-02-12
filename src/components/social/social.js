@@ -11,7 +11,7 @@ export default props => {
             target="_blank"
             className={[styles.socialLink, styles.socialLinkGitHub].join(' ')}
           >
-            <i className="fa fa-github"></i>
+            <i className="fab fa-github"></i>
           </a>
         )}
         {linkedIn && (
@@ -20,7 +20,7 @@ export default props => {
             target="_blank"
             className={[styles.socialLink, styles.socialLinkLinkedIn].join(' ')}
           >
-            <i className="fa fa-linkedin"></i>
+            <i className="fab fa-linkedin-in"></i>
           </a>
         )}
         {instagram && (
@@ -29,7 +29,7 @@ export default props => {
             target="_blank"
             className={[styles.socialLink, styles.socialLinkIG].join(' ')}
           >
-            <i className="fa fa-instagram"></i>
+            <i className="fab fa-instagram"></i>
           </a>
         )}
     </div>
