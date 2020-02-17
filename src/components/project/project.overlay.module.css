@@ -1,0 +1,62 @@
+.linkContainerColumn {
+  flex-direction: column;
+}
+
+.linkContainerColumn a {
+  text-decoration: none;
+}
+
+.linkContainerColumn a:hover {
+  text-decoration: underline;
+}
+
+.linkContainerColumn h2 {
+  text-align: center;
+}
+
+.linkOverlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 100;
+  background: rgba(0,0,0,0.9);
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  color: #FAFAFA;
+}
+
+.closeOverlayIcon {
+  font-size: 24px;
+  color: #FAFAFA;
+}
+
+.closeOverlayButton {
+  border: none;
+  background: transparent;
+  outline: none;
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.overlayHeader {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #FAFAFA;
+}
+
+.overlayHeaderTitle {
+  flex: 1;
+  text-align: center;
+  margin: 0
+}
