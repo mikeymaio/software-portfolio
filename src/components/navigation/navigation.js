@@ -96,7 +96,7 @@ export default (props) => {
           <Link to="/#contact" onClick={toggleMenu}>Contact</Link>
         </li>
         <li className={styles.navigationItem} key="resumeMobile">
-          <a href="https://drive.google.com/file/d/1Lie8gRbdpdKsQ8XfzmMzqk9AWbMtHt6n/view?usp=sharing" target="_blank" onClick={toggleMenu}>Resume</a>
+          <a href="https://drive.google.com/file/d/1OZO9G_kulayYX4qDd0PJMMBr1BboI6yF/view?usp=sharing" target="_blank" onClick={toggleMenu}>Resume</a>
         </li>
       </ul>
       <ul className={styles.navigation}>
