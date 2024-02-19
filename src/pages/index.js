@@ -61,7 +61,7 @@ export const pageQuery = graphql`
           company
           sortOrder
           image {
-            fluid(maxWidth: 200, maxHeight: 150, resizingBehavior: COVER) {
+            fluid(maxWidth: 200, maxHeight: 150, resizingBehavior: FILL) {
              ...GatsbyContentfulFluid
             }
           }
