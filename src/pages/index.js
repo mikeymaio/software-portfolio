@@ -62,7 +62,7 @@ export const pageQuery = graphql`
           sortOrder
           image {
             fluid(maxWidth: 200, maxHeight: 150, resizingBehavior: FILL) {
-             ...GatsbyContentfulFluid_tracedSVG
+             ...GatsbyContentfulFluid
             }
           }
           description
@@ -88,7 +88,7 @@ export const pageQuery = graphql`
               resizingBehavior: FILL
               background: "rgb:FFFFFF"
             ) {
-              ...GatsbyContentfulFluid_tracedSVG
+              ...GatsbyContentfulFluid
             }
           }
         }
@@ -126,7 +126,7 @@ export const pageQuery = graphql`
               resizingBehavior: FILL
               background: "rgb:FFFFFF"
             ) {
-              ...GatsbyContentfulFluid_tracedSVG
+              ...GatsbyContentfulFluid
             }
           }
         }
