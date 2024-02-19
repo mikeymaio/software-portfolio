@@ -118,7 +118,7 @@ export default (props) => {
         </li>
         <li className={styles.navigationItem} key="resume">
           <a
-            href="https://drive.google.com/file/d/1Lie8gRbdpdKsQ8XfzmMzqk9AWbMtHt6n/view?usp=sharing"
+            href="https://drive.google.com/file/d/1OZO9G_kulayYX4qDd0PJMMBr1BboI6yF/view?usp=sharing"
             target="_blank"
           >
             Resume
