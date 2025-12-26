@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
-import styles from './blog.module.css'
+import * as styles from './blog.module.css'
 import Layout from "../components/layout"
 import ArticlePreview from '../components/article-preview/article-preview'
 
@@ -45,7 +45,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
+    allContentfulBlogPost(sort: { publishDate: DESC }) {
       edges {
         node {
           title
@@ -53,9 +53,13 @@ export const pageQuery = graphql`
           publishDate(formatString: "MMMM Do, YYYY")
           tags
           heroImage {
-            fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
-              ...GatsbyContentfulFluid_tracedSVG
-            }
+            gatsbyImageData(
+              width: 350
+              height: 196
+              layout: CONSTRAINED
+              resizingBehavior: SCALE
+              placeholder: TRACED_SVG
+            )
           }
           description {
             childMarkdownRemark {

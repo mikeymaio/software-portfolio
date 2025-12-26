@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'gatsby';
-import Fade from 'react-reveal/Fade';
-import styles from './navigation.module.css';
+import { motion } from 'framer-motion';
+import * as styles from './navigation.module.css';
 import { iOSSafari } from '../../utils';
 
 if (typeof window !== "undefined") {
@@ -99,33 +99,86 @@ export default (props) => {
           <a href="https://docs.google.com/document/d/1oQubsC3F-pFe5rxVklzQ-pyjWWHJHhfr/edit?usp=sharing&ouid=112272571342452619057&rtpof=true&sd=true" target="_blank" onClick={toggleMenu}>Resume</a>
         </li>
       </ul>
-      <ul className={styles.navigation}>
-        <Fade left cascade duration={1500}>
-        <li className={styles.navigationItem} key="home">
+      <motion.ul
+        className={styles.navigation}
+        initial="hidden"
+        animate="visible"
+        variants={{
+          hidden: { opacity: 0 },
+          visible: {
+            opacity: 1,
+            transition: {
+              staggerChildren: 0.1
+            }
+          }
+        }}
+      >
+        <motion.li
+          className={styles.navigationItem}
+          key="home"
+          variants={{
+            hidden: { opacity: 0, x: -20 },
+            visible: { opacity: 1, x: 0, transition: { duration: 1.5 } }
+          }}
+        >
           <Link to="/#home">Home</Link>
-        </li>
-        <li className={styles.navigationItem} key="about">
+        </motion.li>
+        <motion.li
+          className={styles.navigationItem}
+          key="about"
+          variants={{
+            hidden: { opacity: 0, x: -20 },
+            visible: { opacity: 1, x: 0, transition: { duration: 1.5 } }
+          }}
+        >
           <Link to="/#about">About</Link>
-        </li>
-        <li className={styles.navigationItem} key="recentWork">
+        </motion.li>
+        <motion.li
+          className={styles.navigationItem}
+          key="recentWork"
+          variants={{
+            hidden: { opacity: 0, x: -20 },
+            visible: { opacity: 1, x: 0, transition: { duration: 1.5 } }
+          }}
+        >
           <Link to="/#recentWork">Recent Work</Link>
-        </li>
-        <li className={styles.navigationItem} key="skills">
+        </motion.li>
+        <motion.li
+          className={styles.navigationItem}
+          key="skills"
+          variants={{
+            hidden: { opacity: 0, x: -20 },
+            visible: { opacity: 1, x: 0, transition: { duration: 1.5 } }
+          }}
+        >
           <Link to="/#skills">Skills</Link>
-        </li>
-        <li className={styles.navigationItem} key="contact">
+        </motion.li>
+        <motion.li
+          className={styles.navigationItem}
+          key="contact"
+          variants={{
+            hidden: { opacity: 0, x: -20 },
+            visible: { opacity: 1, x: 0, transition: { duration: 1.5 } }
+          }}
+        >
           <Link to="/#contact">Contact</Link>
-        </li>
-        <li className={styles.navigationItem} key="resume">
+        </motion.li>
+        <motion.li
+          className={styles.navigationItem}
+          key="resume"
+          variants={{
+            hidden: { opacity: 0, x: -20 },
+            visible: { opacity: 1, x: 0, transition: { duration: 1.5 } }
+          }}
+        >
           <a
             href="https://docs.google.com/document/d/1oQubsC3F-pFe5rxVklzQ-pyjWWHJHhfr/edit?usp=sharing&ouid=112272571342452619057&rtpof=true&sd=true"
             target="_blank"
           >
             Resume
           </a>
-        </li>
-        </Fade>
-      </ul>
+        </motion.li>
+      </motion.ul>
     </nav>
   )
 }

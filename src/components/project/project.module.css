@@ -24,7 +24,10 @@
 }
 
 .imageWrapper {
-  height: 40%;
+  height: 300px;
+  width: 100%;
+  overflow: hidden;
+  cursor: pointer;
 }
 
 .projectContent {

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import styles from './project.overlay.module.css'
+import * as styles from './project.overlay.module.css'
 
 export default ({
   showLinks,

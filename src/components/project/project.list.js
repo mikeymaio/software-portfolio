@@ -1,7 +1,7 @@
 import React from 'react';
 import Project from './project';
 
-import styles from './project.module.css'
+import * as styles from './project.module.css'
 
 export default props => {
   const { projects } = props;

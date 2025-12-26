@@ -1,7 +1,6 @@
 import React from 'react'
-import Img from 'gatsby-image'
 
-import styles from './about.module.css'
+import * as styles from './about.module.css'
 
 export default ({ data }) => (
   <div className={styles.aboutContainer} id="about">

@@ -1,8 +1,6 @@
 import React from 'react'
-import { Link } from 'gatsby'
-import Img from 'gatsby-image'
 
-import styles from './skills.list.module.css'
+import * as styles from './skills.list.module.css'
 
 import Chip from '../chip/chip'
 

@@ -11,7 +11,7 @@ import SkillList from '../components/skills/skillList';
 import ContactForm from '../components/contact/contact.form';
 import Footer from '../components/footer/footer';
 
-import styles from './index.module.css';
+import * as styles from './index.module.css';
 
 class RootIndex extends React.Component {
   render() {
@@ -54,16 +54,19 @@ export const pageQuery = graphql`
         title
       }
     }
-    allContentfulProject(sort: { fields: [sortOrder], order: ASC }) {
+    allContentfulProject(sort: { sortOrder: ASC }) {
       edges {
         node {
           projectName
           company
           sortOrder
           image {
-            fluid(maxWidth: 200, maxHeight: 150, resizingBehavior: FILL) {
-             ...GatsbyContentfulFluid
-            }
+            gatsbyImageData(
+              width: 200
+              height: 150
+              layout: CONSTRAINED
+              resizingBehavior: FILL
+            )
           }
           description
           iosLink
@@ -83,13 +86,11 @@ export const pageQuery = graphql`
           }
           title
           heroImage: image {
-            fluid(
-              maxWidth: 2000
+            gatsbyImageData(
+              layout: FULL_WIDTH
               resizingBehavior: FILL
-              background: "rgb:FFFFFF"
-            ) {
-              ...GatsbyContentfulFluid
-            }
+              backgroundColor: "rgb:FFFFFF"
+            )
           }
         }
       }
@@ -121,13 +122,11 @@ export const pageQuery = graphql`
           title
           showSocial
           backgroundImage {
-            fluid(
-              maxWidth: 2000
+            gatsbyImageData(
+              layout: FULL_WIDTH
               resizingBehavior: FILL
-              background: "rgb:FFFFFF"
-            ) {
-              ...GatsbyContentfulFluid
-            }
+              backgroundColor: "rgb:FFFFFF"
+            )
           }
         }
       }

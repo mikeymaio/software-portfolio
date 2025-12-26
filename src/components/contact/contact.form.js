@@ -1,9 +1,9 @@
 import React from 'react';
-import Img from 'gatsby-image';
-import Flip from 'react-reveal/Flip';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { motion } from 'framer-motion';
 import Social from '../social/social';
 
-import styles from './contact.form.module.css';
+import * as styles from './contact.form.module.css';
 
 export default props => {
   const { contact: { node: { title, showSocial, backgroundImage } }, social } = props;
@@ -11,10 +11,10 @@ export default props => {
   return (
     <div className={styles.contactContainer} id="contact">
     <div className={styles.backgroundImage}>
-      <Img
+      <GatsbyImage
         className={styles.backgroundImage}
         alt={title}
-        fluid={backgroundImage.fluid}
+        image={getImage(backgroundImage)}
       />
       </div>
       <div className={styles.content}>

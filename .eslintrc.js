@@ -3,6 +3,7 @@ module.exports = {
     "browser": true,
     "es6": true,
   },
+  "parser": "@babel/eslint-parser",
   "plugins": [
     "react",
   ],
@@ -11,9 +12,12 @@ module.exports = {
   },
   "parserOptions": {
     "sourceType": "module",
+    "requireConfigFile": false,
     "ecmaFeatures": {
-      "experimentalObjectRestSpread": true,
       "jsx": true,
     },
+    "babelOptions": {
+      "presets": ["@babel/preset-react"]
+    }
   }
 }

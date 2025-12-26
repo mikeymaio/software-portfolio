@@ -1,7 +1,7 @@
 import React from 'react';
-import Img from 'gatsby-image'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
-import styles from './client.list.module.css'
+import * as styles from './client.list.module.css'
 
 export default props => {
   const { clients } = props;
@@ -16,7 +16,7 @@ export default props => {
         {clients.map(({ node }) => {
           return (
             <li key={node.clientName}>
-              <Img fluid={node.logo.fluid} alt={node.clientName} />
+              <GatsbyImage image={getImage(node.logo)} alt={node.clientName} />
             </li>
           )
         })}

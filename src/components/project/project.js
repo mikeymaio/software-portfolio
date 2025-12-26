@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { Link } from 'gatsby'
-import Img from 'gatsby-image'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
-import styles from './project.module.css'
+import * as styles from './project.module.css'
 import Chip from '../chip/chip'
 import LinkOverlay from './project.overlay'
 
@@ -32,8 +32,13 @@ export default ({ project }) => {
     if (!project.image) return null
 
     return (
-      <div onClick={() => setShowLinks(true)}>
-        <Img fluid={project.image.fluid} alt={project.projectName} />
+      <div onClick={() => setShowLinks(true)} className={styles.imageWrapper}>
+        <GatsbyImage
+          image={getImage(project.image)}
+          alt={project.projectName}
+          style={{ height: '100%', width: '100%' }}
+          imgStyle={{ objectFit: 'cover' }}
+        />
       </div>
     )
   }

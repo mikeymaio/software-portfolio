@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './social.module.css';
+import * as styles from './social.module.css';
 
 export default props => {
   const { social: { node: { github, linkedIn, instagram } } } = props;

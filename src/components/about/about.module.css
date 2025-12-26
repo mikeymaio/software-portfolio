@@ -9,6 +9,7 @@
   .aboutTextContainer {
     padding: 20px;
     width: 85%;
+    line-height: 1.65;
   }
 
   .aboutHeadline {

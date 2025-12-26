@@ -1,7 +1,7 @@
 import React from 'react';
 import Social from '../social/social';
 
-import styles from './footer.module.css';
+import * as styles from './footer.module.css';
 
 export default props => {
   const { social } = props;
