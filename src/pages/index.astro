@@ -1,0 +1,25 @@
+---
+import { getCollection } from 'astro:content'
+import { url } from '../lib/url'
+
+const [profile] = await getCollection('profile')
+const { name, positioningLine } = profile.data
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{name} — Full-stack engineer</title>
+    <meta name="description" content={positioningLine} />
+    <link rel="canonical" href={new URL(url(), Astro.site).href} />
+    <link rel="icon" href={url('favicon.ico')} />
+  </head>
+  <body>
+    <main>
+      <h1>{name}</h1>
+      <p>{positioningLine}</p>
+    </main>
+  </body>
+</html>
