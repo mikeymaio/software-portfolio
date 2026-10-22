@@ -49,11 +49,6 @@ const rest = projects.filter((p) => !p.featured)
   .work {
     padding-top: clamp(56px, 8vw, 104px);
   }
-  h2 {
-    display: flex;
-    align-items: baseline;
-    gap: 16px;
-  }
   /* Collapse and show the button only when scripts run (head script sets html[data-js]). */
   .toggle {
     display: none;
@@ -81,13 +76,5 @@ const rest = projects.filter((p) => !p.featured)
   }
   :global(html[data-js]) .work:not([data-open]) :global(#more-projects) {
     display: none;
-  }
-  .sec-no {
-    font-family: var(--mono);
-    font-size: 13px;
-    font-weight: 400;
-    color: var(--accent);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
   }
 </style>

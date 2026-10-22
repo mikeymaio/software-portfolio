@@ -20,6 +20,12 @@ const { closingLine, email, githubUrl, linkedinUrl, resumeHref } = Astro.props
   }
   .closing {
     margin: 0;
+    max-width: 17em;
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: clamp(28px, 3.4vw, 44px);
+    line-height: 1.12;
+    letter-spacing: -0.02em;
     text-wrap: balance;
   }
   .links {

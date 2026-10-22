@@ -124,6 +124,17 @@ h2 {
   font-size: clamp(32px, 3.4vw, 46px);
   line-height: 1.05;
   letter-spacing: -0.02em;
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: clamp(28px, 4vw, 48px);
+}
+.sec-no {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--accent);
+  letter-spacing: 0.1em;
 }
 h3 {
   font-size: clamp(25px, 2.4vw, 32px);
@@ -139,7 +150,6 @@ h3 {
   border: 1px solid var(--ink);
   border-radius: 5px;
   color: var(--ink);
-  font-family: var(--mono);
   font-weight: 500;
   font-size: 15px;
   text-decoration: none;
