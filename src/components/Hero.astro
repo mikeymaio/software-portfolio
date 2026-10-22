@@ -1,5 +1,6 @@
 ---
 import Marked from './Marked.astro'
+import Signature from './Signature.astro'
 const { name, positioningLine, contextSentence, email, resumeHref } = Astro.props
 ---
 
@@ -11,7 +12,7 @@ const { name, positioningLine, contextSentence, email, resumeHref } = Astro.prop
     <a class="btn primary" href={resumeHref}>Resume</a>
     <a class="btn" href={`mailto:${email}`}>Email me</a>
   </p>
-  <!-- Signature waveform goes here (#53). -->
+  <Signature />
 </section>
 
 <style>
