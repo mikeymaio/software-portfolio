@@ -1,4 +1,5 @@
 ---
+import ThemeToggle from './ThemeToggle.astro'
 
 const { brand, resumeHref } = Astro.props
 ---
@@ -12,6 +13,7 @@ const { brand, resumeHref } = Astro.props
       <a href="#contact">Contact</a>
       <a href={resumeHref}>Resume</a>
     </nav>
+    <ThemeToggle />
   </div>
 </header>
 
@@ -53,6 +55,20 @@ const { brand, resumeHref } = Astro.props
   }
   nav a:hover {
     color: var(--accent);
+  }
+
+  /* Narrow screens: brand and toggle share the first row, links get a full row beneath. */
+  @media (max-width: 520px) {
+    .bar > :global(.theme-toggle) {
+      order: 1;
+      margin-left: auto;
+    }
+    nav {
+      order: 2;
+      flex-basis: 100%;
+      margin-left: -4px;
+      padding-bottom: 4px;
+    }
   }
 
   /* Enhancement: transparent over the hero, paper + hairline once scrolled. */
