@@ -62,7 +62,7 @@ test('Retired companions are credited by name with no links to them', async ({ p
 
 test('no Project link points to a known-retired product; external links are safe and written out', async ({ page }) => {
   await page.goto('/')
-  const links = page.locator('#work .tracks a')
+  const links = page.locator('#work').getByRole('list').getByRole('link')
   const n = await links.count()
   expect(n).toBeGreaterThan(0)
   for (let i = 0; i < n; i++) {
@@ -78,7 +78,7 @@ test('no Project link points to a known-retired product; external links are safe
 test('credits stack under the summary on narrow screens and sit beside it on wide ones', async ({ page }) => {
   await page.goto('/')
   const track = page.locator('#featured-projects > li').first()
-  const head = (await track.locator('.summary').boundingBox())!
+  const head = (await track.getByRole('heading', { level: 3 }).boundingBox())!
   const credits = (await track.getByRole('term').first().boundingBox())!
   if ((page.viewportSize()?.width ?? 0) < 600) expect(credits.y).toBeGreaterThan(head.y + head.height - 1)
   else expect(credits.x).toBeGreaterThan(head.x + head.width)
@@ -89,7 +89,7 @@ test('the header Work link reaches the section', async ({ page }) => {
   await page.goto('/')
   await page.getByRole('navigation', { name: 'Primary' }).getByRole('link', { name: 'Work' }).click()
   await expect(page).toHaveURL(/#work$/)
-  await expect(page.getByRole('heading', { level: 2, name: /Selected work/ })).toBeInViewport()
+  await expect(page.getByRole('heading', { level: 2, name: 'Side A · Selected work' })).toBeInViewport()
 })
 
 test('axe scans stay clean with the Work section', async ({ page }) => {
@@ -103,7 +103,7 @@ test.describe('TODO(michael) marker in the normal build', () => {
     await expect(marker).toBeVisible()
     await expect(marker).toHaveCSS('font-style', 'italic')
     const color = await marker.evaluate((el) => getComputedStyle(el).color)
-    const ink = await page.locator('h3').first().evaluate((el) => getComputedStyle(el).color)
+    const ink = await page.getByRole('heading', { level: 3 }).first().evaluate((el) => getComputedStyle(el).color)
     expect(color).not.toBe(ink)
   })
 })

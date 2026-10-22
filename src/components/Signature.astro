@@ -1,18 +1,34 @@
 ---
 import { waveformSvg } from '../lib/waveform'
 
-// Three bar densities, switched by media query, so bars stay close to 2px at every width.
+// The waveform stretches to the content column, whose width follows the viewport (see .wrap and
+// --gutter in global.css). One fixed viewBox per viewport band keeps the stretch within about 10%,
+// so the 2px bars stay near whole device pixels from 320px up to the maximum content width.
 const HEIGHT = 96
-const variants = [
-  { name: 'sm', width: 320 },
-  { name: 'md', width: 560 },
-  { name: 'lg', width: 1004 },
-].map((v) => ({ ...v, svg: waveformSvg({ width: v.width, height: HEIGHT, played: 0.35, seed: 11 }) }))
+const MAX_CONTENT = 1004
+const contentWidth = (vw: number) => Math.min(MAX_CONTENT, vw - 2 * Math.min(48, Math.max(20, 0.05 * vw)))
+// Lower viewport bound of each band; the last starts where the column reaches its maximum.
+const BANDS = [0, 376, 448, 538, 646, 774, 929, 1100]
+const variants = BANDS.map((from, i) => {
+  const to = BANDS[i + 1]
+  const width =
+    to === undefined
+      ? MAX_CONTENT
+      : Math.round(Math.sqrt(contentWidth(Math.max(from, 320)) * contentWidth(to)))
+  const svg = waveformSvg({ width, height: HEIGHT, played: 0.35, seed: 11 })
+  const rule =
+    from === 0
+      ? '.signature .d0{display:block}'
+      : `@media (min-width:${from}px){.signature .d${i - 1}{display:none}.signature .d${i}{display:block}}`
+  return { i, svg, rule }
+})
+const bandCss = variants.map((v) => v.rule).join('')
 ---
 
-<div class="signature" aria-hidden="true">
-  {variants.map((v) => <div class={`wave ${v.name}`} set:html={v.svg} />)}
+<div class="signature" aria-hidden="true" data-testid="signature">
+  {variants.map((v) => <div class={`wave d${v.i}`} set:html={v.svg} />)}
 </div>
+<style is:inline set:html={bandCss}></style>
 
 <style is:global>
   .signature {
@@ -27,15 +43,6 @@ const variants = [
     display: block;
     width: 100%;
     height: 100%;
-  }
-  .signature .sm { display: block; }
-  @media (min-width: 480px) {
-    .signature .sm { display: none; }
-    .signature .md { display: block; }
-  }
-  @media (min-width: 860px) {
-    .signature .md { display: none; }
-    .signature .lg { display: block; }
   }
   .signature .played, .signature .playhead { fill: var(--accent); }
   .signature .rest { fill: var(--wave-muted); }

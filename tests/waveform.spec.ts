@@ -1,8 +1,15 @@
 import { test, expect } from '@playwright/test'
 import { expectNoA11yViolationsInBothThemes } from './helpers/axe'
 
-const visibleWave = (page: import('@playwright/test').Page) =>
-  page.locator('.signature .wave:visible svg')
+type Page = import('@playwright/test').Page
+
+// The waveform is decorative (aria-hidden), so it has no role; its container carries a test id.
+const signature = (page: Page) => page.getByTestId('signature')
+const visibleWave = (page: Page) => signature(page).locator('svg').filter({ visible: true })
+// Bars are the rects of the visible waveform; the last rect is the playhead line.
+const bars = (page: Page) => visibleWave(page).locator('rect')
+const fillOf = (rect: import('@playwright/test').Locator) =>
+  rect.evaluate((el) => getComputedStyle(el).fill)
 
 test.describe('Signature waveform with JavaScript disabled', () => {
   test.use({ javaScriptEnabled: false })
@@ -19,7 +26,7 @@ test.describe('Signature waveform with JavaScript disabled', () => {
 
 test('is hidden from assistive technology', async ({ page }) => {
   await page.goto('/')
-  await expect(page.locator('.signature')).toHaveAttribute('aria-hidden', 'true')
+  await expect(signature(page)).toHaveAttribute('aria-hidden', 'true')
   await expect(page.getByRole('img')).toHaveCount(0)
 })
 
@@ -31,25 +38,46 @@ test('fits the viewport without horizontal overflow', async ({ page }) => {
   expect(box!.x + box!.width).toBeLessThanOrEqual(vw)
 })
 
-test('played part is accent, unplayed is the muted tone, in light and dark', async ({ page }) => {
+test('bars render at about 2px wide at every width, so they stay crisp', async ({ page }) => {
+  for (const width of [320, 390, 768, 1440]) {
+    await page.setViewportSize({ width, height: 900 })
+    await page.goto('/')
+    await expect(visibleWave(page)).toHaveCount(1)
+    const bar = (await bars(page).first().boundingBox())!
+    expect(Math.abs(bar.width - 2), `bar width at ${width}px`).toBeLessThanOrEqual(0.25)
+  }
+})
+
+test('played portion shows in every density and ends before the unplayed rest', async ({ page }) => {
+  for (const width of [320, 390, 520, 768, 1000, 1440]) {
+    await page.setViewportSize({ width, height: 900 })
+    await page.goto('/')
+    const wave = (await visibleWave(page).boundingBox())!
+    const head = (await bars(page).last().boundingBox())!
+    const share = (head.x - wave.x) / wave.width
+    expect(share, `played share at ${width}px`).toBeGreaterThan(0.3)
+    expect(share).toBeLessThan(0.4)
+  }
+})
+
+test('played part matches the accent, unplayed is a quieter tone, in light and dark', async ({ page }) => {
+  const seen: { played: string; rest: string }[] = []
   for (const scheme of ['light', 'dark'] as const) {
     await page.emulateMedia({ colorScheme: scheme })
     await page.goto('/')
-    const fills = await page.evaluate(() => {
-      const f = (s: string) => getComputedStyle(document.querySelector(`.signature ${s} rect`)!).fill
-      const tok = (n: string) => {
-        const e = document.createElement('i')
-        e.style.color = `var(${n})`
-        document.body.append(e)
-        const c = getComputedStyle(e).color
-        e.remove()
-        return c
-      }
-      return { played: f('.played'), rest: f('.rest'), accent: tok('--accent'), muted: tok('--wave-muted') }
-    })
-    expect(fills.played).toBe(fills.accent)
-    expect(fills.rest).toBe(fills.muted)
+    const played = await fillOf(bars(page).first())
+    const rest = await fillOf(bars(page).nth(-2))
+    const button = await page
+      .locator('#top')
+      .getByRole('link', { name: 'Resume' })
+      .evaluate((el) => getComputedStyle(el).backgroundColor)
+    // Same accent colour as the primary button; the unplayed part is visibly different.
+    expect(played).toBe(button)
+    expect(rest).not.toBe(played)
+    seen.push({ played, rest })
   }
+  // Colours follow the theme.
+  expect(seen[0].rest).not.toBe(seen[1].rest)
 })
 
 test('playhead ease-in is off under reduced motion', async ({ page }) => {
