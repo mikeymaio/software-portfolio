@@ -1,4 +1,7 @@
 {
   "name": "Michael Maio",
-  "positioningLine": "Full-stack engineer. I ship mobile apps and AI products, start to finish."
+  "positioningLine": "Full-stack engineer. I ship mobile apps and AI products, start to finish.",
+  "contextSentence": "Ten years building React Native apps, web platforms, and lately AI assistants, for startups, agencies, and nonprofits.",
+  "contactEmail": "hello@michaelmaio.com",
+  "resumePath": "resume.pdf"
 }

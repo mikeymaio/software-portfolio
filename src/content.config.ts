@@ -7,6 +7,11 @@ const profile = defineCollection({
   schema: z.object({
     name: z.string().min(1),
     positioningLine: z.string().min(1),
+    contextSentence: z.string().min(1),
+    // The one place the public email lives. Draft value until Michael decides.
+    contactEmail: z.string().email(),
+    // Site-relative path of the resume PDF in public/. Rendered through url().
+    resumePath: z.string().min(1),
   }),
 })
 

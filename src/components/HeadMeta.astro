@@ -1,0 +1,11 @@
+---
+// Title, description, canonical and icons. Metadata ticket (#59) extends this file.
+import { url } from '../lib/url'
+
+const { title, description } = Astro.props
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={new URL(url(), Astro.site).href} />
+<link rel="icon" href={url('favicon.ico')} />
