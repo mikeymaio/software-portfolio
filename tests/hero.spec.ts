@@ -53,7 +53,7 @@ test('header links reach their sections', async ({ page }) => {
 test('header gains the paper background once scrolled', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'no-preference' })
   await page.goto('/')
-  const header = page.locator('header.site')
+  const header = page.getByRole('banner')
   const bg = () => header.evaluate((el) => getComputedStyle(el).backgroundColor)
   const solid = await page.evaluate(() => getComputedStyle(document.body).backgroundColor)
   await page.evaluate(() => {

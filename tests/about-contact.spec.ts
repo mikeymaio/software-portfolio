@@ -21,7 +21,7 @@ for (const name of ['About', 'Contact']) {
 test('About shows the story and toolkit, and no portrait placeholder', async ({ page }) => {
   await page.goto('/')
   const about = page.locator('#about')
-  await expect(about.getByRole('heading', { level: 2, name: /Side B/ })).toBeVisible()
+  await expect(about.getByRole('heading', { level: 2, name: 'Side B · About' })).toBeVisible()
   await expect(about.getByText(profile.aboutText)).toBeVisible()
   await expect(about.getByText(profile.toolkit)).toBeVisible()
   await expect(about.getByRole('img')).toHaveCount(0)
