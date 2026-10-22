@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Michael Maio — D · Liner Notes / Geist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+<script>
+(function(){var r=document.documentElement,q=new URLSearchParams(location.search),t=q.get('theme');
+r.classList.add('js');if(t==='dark'||t==='light')r.classList.add(t);if(q.has('open'))r.classList.add('more-open');
+if(q.has('measure'))addEventListener('load',function(){document.fonts.ready.then(function(){setTimeout(function(){r.setAttribute('data-h',r.scrollHeight)},400)})});
+document.addEventListener('DOMContentLoaded',function(){var b=document.querySelector('.toggle');if(!b)return;
+  function sync(){var o=r.classList.contains('more-open');b.setAttribute('aria-expanded',o);
+    b.innerHTML=o?'Show fewer <span aria-hidden="true">\u2212</span>':'All projects (9) <span aria-hidden="true">+</span>';}
+  b.addEventListener('click',function(){r.classList.toggle('more-open');sync();});sync();});})();
+</script>
+<script src="wave.js" defer></script>
+<style>
+:root{color-scheme:light;--bg:#F5F2EB;--ink:#16140F;--muted:#5E594D;--accent:#B23A0A;--on-accent:#FFFFFF;--rule:#D9D3C4;--rule-strong:#A39C8A;--panel:#EDE8DC;--display:Geist,system-ui,sans-serif;--body:Geist,system-ui,sans-serif;--mono:'Geist Mono',ui-monospace,monospace;--wave-muted:#BFB7A6}
+@media (prefers-color-scheme:dark){:root:not(.light){color-scheme:dark;--bg:#14120E;--ink:#EFE9DC;--muted:#A69F8E;--accent:#F59E0B;--on-accent:#14120E;--rule:#2E2A22;--rule-strong:#5A5446;--panel:#1C1914;--wave-muted:#4F493D}}
+:root.dark{color-scheme:dark;--bg:#14120E;--ink:#EFE9DC;--muted:#A69F8E;--accent:#F59E0B;--on-accent:#14120E;--rule:#2E2A22;--rule-strong:#5A5446;--panel:#1C1914;--wave-muted:#4F493D}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit}
+.wrap{width:min(1004px,calc(100% - 2*clamp(20px,5vw,48px)));margin-left:auto;margin-right:auto}
+header.site{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding-top:22px;padding-bottom:22px}
+header.site .brand{text-decoration:none;font-weight:600;white-space:nowrap}
+header.site nav{display:flex;gap:clamp(12px,2.5vw,28px);flex-wrap:wrap;justify-content:flex-end}
+header.site nav a{text-decoration:none;color:var(--muted)}
+header.site nav a:hover{color:var(--accent)}
+.hero{padding-top:clamp(56px,10vw,128px);padding-bottom:clamp(48px,7vw,88px)}
+.hero h1{margin:0}
+.position{margin:0}
+.context{color:var(--muted);max-width:40em}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin:32px 0 0}
+.btn{display:inline-block;text-decoration:none;padding:12px 22px;border:1px solid var(--ink);color:var(--ink)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.btn.primary:hover{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.signature{margin-top:clamp(48px,7vw,80px);color:var(--accent)}
+.wave{display:block;width:100%;height:56px}
+section.work,section.about,section.contact{padding-top:clamp(56px,8vw,104px)}
+h2{margin:0 0 clamp(28px,4vw,48px)}
+.tracks{border-top:1px solid var(--rule)}
+.track{display:grid;grid-template-columns:4.5rem minmax(0,1fr) minmax(0,1.15fr);gap:8px 32px;padding:32px 0;border-bottom:1px solid var(--rule)}
+.track .num{font-family:var(--mono);color:var(--accent);font-size:14px;padding-top:.5em}
+.track h3{margin:0}
+.summary{margin:.4em 0 0;color:var(--muted);max-width:30em}
+.summary:empty{display:none}
+.links{margin:.8em 0 0;display:flex;gap:18px;flex-wrap:wrap}
+.links a,.contact-links a{color:var(--accent);text-underline-offset:3px;text-decoration-thickness:1px}
+.links a:hover,.contact-links a:hover{color:var(--ink)}
+.credits{margin:0;font-family:var(--mono);font-size:13.5px;line-height:1.5}
+.credit{display:flex;align-items:baseline;gap:0;padding:3px 0}
+.credit dt{flex:none;color:var(--muted)}
+.credit .lead{flex:1 1 1.5em;min-width:1.5em;margin:0 .6ch;border-bottom:1px dotted var(--muted);transform:translateY(-.3em)}
+.credit dd{margin:0;text-align:right;flex:0 1 auto}
+.credit .sep{color:var(--muted)}
+.credit .t{white-space:nowrap}
+.todo{color:var(--muted);font-style:italic;letter-spacing:.06em}
+details.more{margin-top:32px}
+details.more summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:10px;
+  padding:12px 22px;border:1px solid var(--ink);font-family:var(--mono);font-size:14px}
+details.more summary::-webkit-details-marker{display:none}
+details.more summary::after{content:"+";color:var(--accent);font-size:1.1em;line-height:1}
+details.more[open] summary::after{content:"\2212"}
+details.more summary:hover{border-color:var(--accent)}
+details.more summary:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+details.more .tracks{margin-top:24px}
+details.more .track{padding:22px 0}
+.about-grid{display:grid;grid-template-columns:minmax(0,1fr) 168px;gap:56px;align-items:start}
+.lede{margin:0;max-width:34em}
+.toolkit{font-family:var(--mono);font-size:14px;color:var(--muted);margin-top:24px}
+.portrait{aspect-ratio:4/5;border:1px dashed var(--rule-strong);display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:12px;color:var(--muted);background:var(--panel)}
+.contact{padding-bottom:clamp(48px,7vw,96px)}
+.closing{margin:0;text-wrap:balance}
+.position,h3{text-wrap:balance}
+.contact-links{display:flex;gap:28px;flex-wrap:wrap;margin-top:28px}
+footer{padding-top:28px;padding-bottom:40px;border-top:1px solid var(--rule);color:var(--muted)}
+footer small{font-family:var(--mono);font-size:12px}
+@media (max-width:860px){
+  .track{grid-template-columns:3rem minmax(0,1fr)}
+  .track .credits{grid-column:2}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .track{grid-template-columns:minmax(0,1fr);gap:6px}
+  .track .credits{grid-column:1;margin-top:12px}
+  .track .num{padding-top:0}
+  .about-grid{grid-template-columns:minmax(0,1fr) 96px;gap:24px}
+  header.site{flex-direction:column;gap:8px}
+  header.site nav{justify-content:flex-start}
+}
+
+/* ---- round 2 shared ---- */
+
+[data-wave]{display:block;width:100%;height:64px}
+[data-wave] svg{display:block}
+[data-wave] .played{fill:var(--accent)}
+[data-wave] .rest{fill:var(--wave-muted)}
+[data-wave] .playhead{fill:var(--ink)}
+[data-wave] .env{fill:var(--wave-muted)}
+[data-wave] .axis{fill:var(--rule-strong);opacity:.5}
+[data-wave="w3"]{color:var(--accent)}
+
+header.site .brand{font-family:var(--display);font-weight:600;font-size:18px;letter-spacing:-.01em}
+.hero{padding-top:clamp(56px,9vw,120px)}
+.hero h1{font-family:var(--display);font-weight:600;font-size:clamp(52px,10vw,144px);line-height:.95;letter-spacing:-.03em;margin-left:-.03em}
+.position{font-family:var(--display);font-weight:500;font-size:clamp(23px,2.7vw,38px);line-height:1.18;letter-spacing:-.015em;margin-top:32px;max-width:21em;text-wrap:balance}
+.context{margin-top:18px;font-size:18px}
+.btn{border-radius:5px;font-weight:500;font-size:15px}
+.signature{margin-top:clamp(48px,6vw,72px)}
+h2{font-family:var(--display);font-weight:600;font-size:clamp(32px,3.4vw,46px);line-height:1.05;letter-spacing:-.02em;display:flex;align-items:baseline;gap:16px}
+.sec-no{font-family:var(--mono);font-size:13px;font-weight:400;color:var(--accent);letter-spacing:.1em}
+.sec-no::before{content:"Side "}
+.tracks{border-top:1px solid var(--ink)}
+.track h3{font-family:var(--display);font-weight:600;font-size:clamp(25px,2.4vw,32px);line-height:1.1;letter-spacing:-.02em}
+.track .num{font-size:14px;padding-top:.55em}
+.lede{font-size:clamp(19px,1.9vw,23px);line-height:1.5;letter-spacing:-.005em}
+.closing{font-family:var(--display);font-weight:600;font-size:clamp(28px,3.4vw,44px);line-height:1.12;letter-spacing:-.02em;max-width:17em;text-wrap:balance}
+/* expandable list: toggle sits under the list */
+.tracks.more{border-top:0}
+.toggle{display:none;margin-top:28px;align-items:center;gap:10px;padding:12px 20px;border:1px solid var(--ink);border-radius:5px;
+  background:transparent;color:var(--ink);font:500 14px/1.2 var(--mono);cursor:pointer}
+.toggle span{color:var(--accent);font-size:1.15em;line-height:1}
+.toggle:hover{border-color:var(--accent)}
+.toggle:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.js .toggle{display:inline-flex}
+.js:not(.more-open) .tracks.more{display:none}
+
+/* ---- variant ---- */
+
+</style>
+</head>
+<body>
+<header class="site wrap">
+  <a class="brand" href="#">Michael Maio</a>
+  <nav><a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a><a href="#">Resume</a></nav>
+</header>
+
+<main>
+  <section class="hero wrap">
+    <h1>Michael Maio</h1>
+    <p class="position">Full-stack engineer. I ship mobile apps and AI products, start to finish.</p>
+    <p class="context">Ten years building React Native apps, web platforms, and lately AI assistants, for startups, agencies, and nonprofits.</p>
+    <p class="actions"><a class="btn primary" href="#">Resume</a><a class="btn" href="mailto:hello@example.com">Email me</a></p>
+    <div class="signature" data-wave="w1" data-split=".35"></div>
+  </section>
+
+  <section id="work" class="work wrap">
+    <h2><span class="sec-no">A</span>Selected work</h2>
+    <div class="tracks">
+      <article class="track">
+        <div class="num">01</div>
+        <div class="head">
+          <h3>ChatCEC</h3>
+          <p class="summary">AI energy-efficiency assistant</p>
+          <p class="links"><a href="#">Website</a></p>
+        </div>
+        <dl class="credits">
+          <div class="credit"><dt>Client</dt><span class="lead" aria-hidden="true"></span><dd>Carleton Energy Consulting</dd></div>
+          <div class="credit"><dt>Role</dt><span class="lead" aria-hidden="true"></span><dd class="todo">TODO</dd></div>
+          <div class="credit"><dt>Years</dt><span class="lead" aria-hidden="true"></span><dd class="todo">TODO</dd></div>
+          <div class="credit"><dt>Stack</dt><span class="lead" aria-hidden="true"></span><dd><span class="t">Python</span> <span class="sep">·</span> <span class="t">Flask</span> <span class="sep">·</span> <span class="t">LangChain</span> <span class="sep">·</span> <span class="t">AWS RDS</span> <span class="sep">·</span> <span class="t">AWS Lambda</span> <span class="sep">·</span> <span class="t">Next.js</span></dd></div>
+        </dl>
+      </article>
+      <article class="track">
+        <div class="num">02</div>
+        <div class="head">
+          <h3>Dayworker</h3>
+          <p class="summary">Professional network connecting companies and contractors with local laborers and tradespeople</p>
+          <p class="links"><a href="#">Website</a><a href="#">App Store</a><a href="#">Google Play</a></p>
+        </div>
+        <dl class="credits">
+          <div class="credit"><dt>Client</dt><span class="lead" aria-hidden="true"></span><dd>Dayworker</dd></div>
+          <div class="credit"><dt>Role</dt><span class="lead" aria-hidden="true"></span><dd class="todo">TODO</dd></div>
+          <div class="credit"><dt>Years</dt><span class="lead" aria-hidden="true"></span><dd class="todo">TODO</dd></div>
+          <div class="credit"><dt>Stack</dt><span class="lead" aria-hidden="true"></span><dd><span class="t">React Native</span> <span class="sep">·</span> <span class="t">Redux</span> <span class="sep">·</span> <span class="t">Firebase</span> <span class="sep">·</span> <span class="t">Sendbird</span></dd></div>
+        </dl>
+      </article>
+      <article class="track">
+        <div class="num">03</div>
+        <div class="head">
+          <h3>Daki &amp; JOKR</h3>
+          <p class="summary">Two grocery-delivery apps from one React Native codebase</p>
+          <p class="links"><a href="#">App Store</a><a href="#">Google Play</a></p>
+        </div>
+        <dl class="credits">
+          <div class="credit"><dt>Client</dt><span class="lead" aria-hidden="true"></span><dd>Daki / JOKR</dd></div>
+          <div class="credit"><dt>Role</dt><span class="lead" aria-hidden="true"></span><dd class="todo">TODO</dd></div>
+          <div class="credit"><dt>Years</dt><span class="lead" aria-hidden="true"></span><dd class="todo">TODO</dd></div>
+          <div class="credit"><dt>Stack</dt><span class="lead" aria-hidden="true"></span><dd><span class="t">React Native</span> <span class="sep">·</span> <span class="t">Redux</span> <span class="sep">·</span> <span class="t">GraphQL</span> <span class="sep">·</span> <span class="t">Apollo</span> <span class="sep">·</span> <span class="t">Mixpanel</span> <span class="sep">·</span> <span class="t">Braze</span> <span class="sep">·</span> <span class="t">GCP</span></dd></div>
+        </dl>
+      </article>
+      <article class="track">
+        <div class="num">04</div>
+        <div class="head">
+          <h3>Yes.Fit</h3>
+          <p class="summary">Virtual fitness challenges app</p>
+          <p class="links"><a href="#">Website</a><a href="#">App Store</a><a href="#">Google Play</a></p>
+        </div>
+        <dl class="credits">
+          <div class="credit"><dt>Client</dt><span class="lead" aria-hidden="true"></span><dd>Yes.Fit</dd></div>
+          <div class="credit"><dt>Role</dt><span class="lead" aria-hidden="true"></span><dd class="todo">TODO</dd></div>
+          <div class="credit"><dt>Years</dt><span class="lead" aria-hidden="true"></span><dd class="todo">TODO</dd></div>
+          <div class="credit"><dt>Stack</dt><span class="lead" aria-hidden="true"></span><dd><span class="t">React Native</span> <span class="sep">·</span> <span class="t">Redux</span> <span class="sep">·</span> <span class="t">REST</span> <span class="sep">·</span> <span class="t">fitness integrations</span></dd></div>
+        </dl>
+      </article>
+      <article class="track">
+        <div class="num">05</div>
+        <div class="head">
+          <h3>Settle In</h3>
+          <p class="summary">Cultural orientation app for refugees</p>
+          <p class="links"><a href="#">Website</a><a href="#">App Store</a><a href="#">Google Play</a></p>
+        </div>
+        <dl class="credits">
+          <div class="credit"><dt>Client</dt><span class="lead" aria-hidden="true"></span><dd>International Rescue Committee</dd></div>
+          <div class="credit"><dt>Role</dt><span class="lead" aria-hidden="true"></span><dd class="todo">TODO</dd></div>
+          <div class="credit"><dt>Years</dt><span class="lead" aria-hidden="true"></span><dd class="todo">TODO</dd></div>
+          <div class="credit"><dt>Stack</dt><span class="lead" aria-hidden="true"></span><dd><span class="t">React Native</span> <span class="sep">·</span> <span class="t">Redux</span> <span class="sep">·</span> <span class="t">i18n</span></dd></div>
+        </dl>
+      </article>
+    </div>
+    <div class="tracks more" id="more-projects">
+      <article class="track">
+        <div class="num">06</div>
+        <div class="head">
+          <h3>Member Portal &amp; Screens</h3>
+          <p class="summary"></p>
+          
+        </div>
+        <dl class="credits">
+          <div class="credit"><dt>Client</dt><span class="lead" aria-hidden="true"></span><dd>PushPress</dd></div>
+          <div class="credit"><dt>Role</dt><span class="lead" aria-hidden="true"></span><dd class="todo">TODO</dd></div>
+          <div class="credit"><dt>Years</dt><span class="lead" aria-hidden="true"></span><dd class="todo">TODO</dd></div>
+          <div class="credit"><dt>Stack</dt><span class="lead" aria-hidden="true"></span><dd><span class="t">React Native</span> <span class="sep">·</span> <span class="t">react-native-web</span> <span class="sep">·</span> <span class="t">Redux</span> <span class="sep">·</span> <span class="t">Firebase</span></dd></div>
+        </dl>
+      </article>
+      <article class="track">
+        <div class="num">07</div>
+        <div class="head">
+          <h3>Engage Mobile</h3>
+          <p class="summary"></p>
+          
+        </div>
+        <dl class="credits">
+          <div class="credit"><dt>Client</dt><span class="lead" aria-hidden="true"></span><dd>Futuri</dd></div>
+          <div class="credit"><dt>Role</dt><span class="lead" aria-hidden="true"></span><dd class="todo">TODO</dd></div>
+          <div class="credit"><dt>Years</dt><span class="lead" aria-hidden="true"></span><dd class="todo">TODO</dd></div>
+          <div class="credit"><dt>Stack</dt><span class="lead" aria-hidden="true"></span><dd><span class="t">React Native</span> <span class="sep">·</span> <span class="t">Redux</span> <span class="sep">·</span> <span class="t">Objective-C</span> <span class="sep">·</span> <span class="t">Java</span></dd></div>
+        </dl>
+      </article>
+      <article class="track">
+        <div class="num">08</div>
+        <div class="head">
+          <h3>DEED</h3>
+          <p class="summary"></p>
+          
+        </div>
+        <dl class="credits">
+          <div class="credit"><dt>Client</dt><span class="lead" aria-hidden="true"></span><dd>Go Deed</dd></div>
+          <div class="credit"><dt>Role</dt><span class="lead" aria-hidden="true"></span><dd class="todo">TODO</dd></div>
+          <div class="credit"><dt>Years</dt><span class="lead" aria-hidden="true"></span><dd class="todo">TODO</dd></div>
+          <div class="credit"><dt>Stack</dt><span class="lead" aria-hidden="true"></span><dd><span class="t">React</span> <span class="sep">·</span> <span class="t">React Native</span> <span class="sep">·</span> <span class="t">TypeScript</span> <span class="sep">·</span> <span class="t">Redux</span> <span class="sep">·</span> <span class="t">i18n</span></dd></div>
+        </dl>
+      </article>
+      <article class="track">
+        <div class="num">09</div>
+        <div class="head">
+          <h3>OLD_SPORT</h3>
+          <p class="summary">Band website</p>
+          
+        </div>
+        <dl class="credits">
+          <div class="credit"><dt>Client</dt><span class="lead" aria-hidden="true"></span><dd>OLD_SPORT</dd></div>
+          <div class="credit"><dt>Role</dt><span class="lead" aria-hidden="true"></span><dd class="todo">TODO</dd></div>
+          <div class="credit"><dt>Years</dt><span class="lead" aria-hidden="true"></span><dd class="todo">TODO</dd></div>
+          <div class="credit"><dt>Stack</dt><span class="lead" aria-hidden="true"></span><dd><span class="t">React</span> <span class="sep">·</span> <span class="t">webpack</span></dd></div>
+        </dl>
+      </article>
+    </div>
+    <button type="button" class="toggle" aria-expanded="false" aria-controls="more-projects">All projects (9) <span aria-hidden="true">+</span></button>
+  </section>
+
+  <section id="about" class="about wrap">
+    <h2><span class="sec-no">B</span>About</h2>
+    <div class="about-grid">
+      <div>
+        <p class="lede">Before I wrote software I was a musician and audio engineer: years of tracking, mixing, and shipping records on deadline. It turns out that's good training for engineering — listen closely, cut what doesn't serve the song, and ship.</p>
+        <p class="toolkit">Current toolkit: TypeScript, React, React Native, Node, Python, LangChain, AWS.</p>
+      </div>
+      <div class="portrait" role="img" aria-label="Portrait placeholder">portrait</div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact wrap">
+    <p class="closing">Need a senior engineer, for a role or a project? Let's talk.</p>
+    <p class="contact-links"><a href="mailto:hello@example.com">hello@example.com</a><a href="#">GitHub</a><a href="#">LinkedIn</a><a href="#">Resume</a></p>
+  </section>
+</main>
+
+<footer class="wrap"><small>© 2026 Michael Maio</small></footer>
+</body>
+</html>

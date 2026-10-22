@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Waveform treatments</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;600&family=Geist+Mono&display=swap">
+<style>
+.panel.light{--bg:#F5F2EB;--ink:#16140F;--muted:#5E594D;--accent:#B23A0A;--on-accent:#FFFFFF;--rule:#D9D3C4;--rule-strong:#A39C8A;--panel:#EDE8DC;--display:'Instrument Serif',Georgia,serif;--body:Inter,system-ui,sans-serif;--mono:'Geist Mono',monospace;--wave-muted:#BFB7A6}
+.panel.dark{--bg:#14120E;--ink:#EFE9DC;--muted:#A69F8E;--accent:#F59E0B;--on-accent:#14120E;--rule:#2E2A22;--rule-strong:#5A5446;--panel:#1C1914;--wave-muted:#4F493D}
+body{margin:0;min-height:100vh;font-family:Geist,system-ui,sans-serif;display:grid;grid-template-columns:1fr 1fr}
+.panel{background:var(--bg);color:var(--ink);padding:48px 56px 56px}
+.panel h2{margin:0 0 8px;font-weight:600;font-size:22px;letter-spacing:-.01em}
+.row{padding:28px 0;border-bottom:1px solid var(--rule)}
+.lab{margin:0 0 18px;font-family:'Geist Mono',monospace;font-size:13px;color:var(--muted)}
+.lab b{color:var(--accent);font-weight:400;margin-right:8px}
+.narrow{width:350px;display:grid;gap:22px}
+
+[data-wave]{display:block;width:100%;height:64px}
+[data-wave] svg{display:block}
+[data-wave] .played{fill:var(--accent)}
+[data-wave] .rest{fill:var(--wave-muted)}
+[data-wave] .playhead{fill:var(--ink)}
+[data-wave] .env{fill:var(--wave-muted)}
+[data-wave] .axis{fill:var(--rule-strong);opacity:.5}
+[data-wave="w3"]{color:var(--accent)}
+
+</style>
+<script src="wave.js" defer></script></head>
+<body>
+    <section class="panel light"><h2>Light — paper #F5F2EB</h2>
+      <div class="row"><p class="lab"><b>W1</b> DAW clip — mirrored 2px bars, played region + playhead</p><div data-wave="w1" data-split=".35"></div></div>
+      <div class="row"><p class="lab"><b>W2</b> Envelope — smooth filled overview</p><div data-wave="w2" data-split=".35"></div></div>
+      <div class="row"><p class="lab"><b>W3</b> Oscilloscope — single AM hairline, faded ends</p><div data-wave="w3" data-split=".35"></div></div>
+      <div class="row"><p class="lab"><b>@ 350px</b> mobile width</p><div class="narrow"><div data-wave="w1" data-split=".35"></div><div data-wave="w2" data-split=".35"></div><div data-wave="w3" data-split=".35"></div></div></div>
+    </section>
+    <section class="panel dark"><h2>Dark — #14120E</h2>
+      <div class="row"><p class="lab"><b>W1</b> DAW clip — mirrored 2px bars, played region + playhead</p><div data-wave="w1" data-split=".35"></div></div>
+      <div class="row"><p class="lab"><b>W2</b> Envelope — smooth filled overview</p><div data-wave="w2" data-split=".35"></div></div>
+      <div class="row"><p class="lab"><b>W3</b> Oscilloscope — single AM hairline, faded ends</p><div data-wave="w3" data-split=".35"></div></div>
+      <div class="row"><p class="lab"><b>@ 350px</b> mobile width</p><div class="narrow"><div data-wave="w1" data-split=".35"></div><div data-wave="w2" data-split=".35"></div><div data-wave="w3" data-split=".35"></div></div></div>
+    </section></body></html>
