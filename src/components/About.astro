@@ -1,0 +1,53 @@
+---
+import Marked from './Marked.astro'
+import { Image } from 'astro:assets'
+const { aboutText, toolkit, portrait } = Astro.props
+---
+
+<section id="about" class="about wrap">
+  <h2><span class="sec-no">Side B ·</span> About</h2>
+  <div class:list={['grid', { 'with-portrait': portrait }]}>
+    <div>
+      <p class="lede"><Marked text={aboutText} /></p>
+      <p class="toolkit"><Marked text={toolkit} /></p>
+    </div>
+    {portrait && <Image class="portrait" src={portrait.src} alt={portrait.alt} width={336} />}
+  </div>
+</section>
+
+<style>
+  .about {
+    padding-top: clamp(56px, 8vw, 104px);
+  }
+  .grid.with-portrait {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 168px;
+    gap: 56px;
+    align-items: start;
+  }
+  .lede {
+    margin: 0;
+    max-width: 34em;
+    font-size: clamp(19px, 1.9vw, 23px);
+    line-height: 1.5;
+    letter-spacing: -0.005em;
+  }
+  .toolkit {
+    margin: 24px 0 0;
+    font-family: var(--mono);
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .portrait {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+  }
+  @media (max-width: 560px) {
+    .grid.with-portrait {
+      grid-template-columns: minmax(0, 1fr) 96px;
+      gap: 24px;
+    }
+  }
+</style>

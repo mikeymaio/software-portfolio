@@ -1,0 +1,12 @@
+---
+// Inline, render-blocking on purpose: applies a stored choice to <html data-theme> before first
+// paint (no flash), and marks <html data-js> so the toggle only appears when scripts run.
+---
+
+<script is:inline>
+  document.documentElement.setAttribute('data-js', '')
+  try {
+    var t = localStorage.getItem('theme')
+    if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t)
+  } catch (e) {}
+</script>

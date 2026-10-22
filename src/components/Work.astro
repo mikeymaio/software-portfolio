@@ -1,0 +1,80 @@
+---
+import { getProjects } from '../lib/projects'
+import ProjectList from './ProjectList.astro'
+
+const projects = await getProjects()
+const featured = projects.filter((p) => p.featured)
+const rest = projects.filter((p) => !p.featured)
+---
+
+<section id="work" class="work wrap">
+  <h2><span class="sec-no">Side A ·</span> Selected work</h2>
+  <ProjectList id="featured-projects" label="Featured projects" projects={featured} start={1} />
+  <ProjectList id="more-projects" label="More projects" projects={rest} start={featured.length + 1} more />
+  {
+    rest.length > 0 && (
+      <button
+        type="button"
+        class="toggle"
+        aria-expanded="false"
+        aria-controls="more-projects"
+        data-total={projects.length}
+      >
+        All projects ({projects.length}) <span aria-hidden="true">+</span>
+      </button>
+    )
+  }
+</section>
+
+<script>
+  const button = document.querySelector<HTMLButtonElement>('#work .toggle')
+  const section = document.getElementById('work')
+  if (button && section) {
+    const total = button.dataset.total
+    const render = () => {
+      const open = section.hasAttribute('data-open')
+      button.setAttribute('aria-expanded', String(open))
+      button.innerHTML = open
+        ? 'Show fewer <span aria-hidden="true">\u2212</span>'
+        : `All projects (${total}) <span aria-hidden="true">+</span>`
+    }
+    button.addEventListener('click', () => {
+      section.toggleAttribute('data-open')
+      render()
+    })
+  }
+</script>
+
+<style>
+  .work {
+    padding-top: clamp(56px, 8vw, 104px);
+  }
+  /* Collapse and show the button only when scripts run (head script sets html[data-js]). */
+  .toggle {
+    display: none;
+    margin-top: 28px;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    border: 1px solid var(--ink);
+    border-radius: 5px;
+    background: transparent;
+    color: var(--ink);
+    font: 500 14px/1.2 var(--mono);
+    cursor: pointer;
+  }
+  .toggle span {
+    color: var(--accent);
+    font-size: 1.15em;
+    line-height: 1;
+  }
+  .toggle:hover {
+    border-color: var(--accent);
+  }
+  :global(html[data-js]) .toggle {
+    display: inline-flex;
+  }
+  :global(html[data-js]) .work:not([data-open]) :global(#more-projects) {
+    display: none;
+  }
+</style>
