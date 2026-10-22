@@ -1,5 +1,20 @@
 ---
-// Placeholder: the About/Contact/footer ticket (#57) fills this.
+const { name } = Astro.props
 ---
 
-<footer class="wrap"></footer>
+<footer class="wrap">
+  <small>© {new Date().getFullYear()} {name}</small>
+</footer>
+
+<style>
+  footer {
+    padding-top: 28px;
+    padding-bottom: 40px;
+    border-top: 1px solid var(--rule);
+    color: var(--muted);
+  }
+  small {
+    font-family: var(--mono);
+    font-size: 12px;
+  }
+</style>

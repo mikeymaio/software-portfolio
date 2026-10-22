@@ -1,5 +1,30 @@
 ---
-// Placeholder: a later ticket fills this section. Keep the id; header links point here.
+const { closingLine, email, githubUrl, linkedinUrl, resumeHref } = Astro.props
 ---
 
-<section id="contact" class="contact wrap"></section>
+<section id="contact" class="contact wrap" aria-label="Contact">
+  <p class="closing">{closingLine}</p>
+  <p class="links">
+    <a class="text-link" href={`mailto:${email}`}>{email}</a>
+    <a class="text-link" href={githubUrl} target="_blank" rel="noopener noreferrer">GitHub</a>
+    <a class="text-link" href={linkedinUrl} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    <a class="text-link" href={resumeHref}>Resume</a>
+  </p>
+</section>
+
+<style>
+  .contact {
+    padding-top: clamp(56px, 8vw, 104px);
+    padding-bottom: clamp(48px, 7vw, 96px);
+  }
+  .closing {
+    margin: 0;
+    text-wrap: balance;
+  }
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 28px;
+    margin: 28px 0 0;
+  }
+</style>
