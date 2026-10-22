@@ -1,0 +1,11 @@
+{
+  "name": "ChatCEC",
+  "client": "Carleton Energy Consulting",
+  "role": "TODO(michael)",
+  "years": "TODO(michael)",
+  "summary": "AI energy-efficiency assistant",
+  "stack": ["Python", "Flask", "LangChain", "AWS RDS", "AWS Lambda", "Next.js"],
+  "links": { "website": "https://www.chatcec.ai/" },
+  "order": 1,
+  "featured": true
+}

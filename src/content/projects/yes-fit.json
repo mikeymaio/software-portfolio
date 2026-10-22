@@ -1,0 +1,15 @@
+{
+  "name": "Yes.Fit",
+  "client": "Yes.Fit",
+  "role": "TODO(michael)",
+  "years": "TODO(michael)",
+  "summary": "Virtual fitness challenges app",
+  "stack": ["React Native", "Redux", "REST API", "Fitness app integrations"],
+  "links": {
+    "website": "https://yes.fit/",
+    "appStore": "https://apps.apple.com/us/app/yes-fit/id1300316494",
+    "googlePlay": "https://play.google.com/store/apps/details?id=com.yesfitclient&hl=en_US&gl=US&pli=1"
+  },
+  "order": 4,
+  "featured": true
+}

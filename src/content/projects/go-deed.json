@@ -1,0 +1,14 @@
+{
+  "name": "Go Deed DEED",
+  "client": "Go Deed",
+  "role": "TODO(michael)",
+  "years": "TODO(michael)",
+  "summary": "Social volunteering app",
+  "stack": ["React", "React Native", "React Native Web", "TypeScript", "Redux", "i18n"],
+  "links": {
+    "website": "https://www.thedeed.app/",
+    "appStore": "https://apps.apple.com/us/app/deed-app/id1116827022",
+    "googlePlay": "https://play.google.com/store/apps/details?id=co.godeed&hl=en_US"
+  },
+  "order": 8
+}

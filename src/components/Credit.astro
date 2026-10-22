@@ -1,0 +1,61 @@
+---
+// One credit row (term, dotted leader, value). Role and Years values come through here,
+// so #56 hooks its `TODO(michael)` handling in this one place.
+interface Props {
+  term: string
+  value?: string
+  list?: string[]
+}
+const { term, value, list } = Astro.props
+const isTodo = value?.includes('TODO(michael)') ?? false
+---
+
+<div class="credit">
+  <dt>{term}</dt><span class="lead" aria-hidden="true"></span>
+  <dd class:list={{ todo: isTodo }}>
+    {
+      list
+        ? list.map((t, i) => (
+            <>
+              {i > 0 && <span class="sep" aria-hidden="true"> · </span>}
+              <span class="t">{t}</span>
+            </>
+          ))
+        : value
+    }
+  </dd>
+</div>
+
+<style>
+  .credit {
+    display: flex;
+    align-items: baseline;
+    padding: 3px 0;
+  }
+  dt {
+    flex: none;
+    color: var(--muted);
+  }
+  .lead {
+    flex: 1 1 1.5em;
+    min-width: 1.5em;
+    margin: 0 0.6ch;
+    border-bottom: 1px dotted var(--muted);
+    transform: translateY(-0.3em);
+  }
+  dd {
+    margin: 0;
+    text-align: right;
+    flex: 0 1 auto;
+  }
+  .sep {
+    color: var(--muted);
+  }
+  .t {
+    white-space: nowrap;
+  }
+  .todo {
+    color: var(--muted);
+    font-style: italic;
+  }
+</style>
