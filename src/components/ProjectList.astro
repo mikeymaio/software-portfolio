@@ -1,6 +1,7 @@
 ---
 import type { Project } from '../lib/projects'
 import { projectLinks } from '../lib/projects'
+import Marked from './Marked.astro'
 import Credit from './Credit.astro'
 
 interface Props {
@@ -20,9 +21,9 @@ const { id, label, projects, start, more = false } = Astro.props
         <li class="track">
           <div class="num">{String(start + i).padStart(2, '0')}</div>
           <div class="head">
-            <h3>{p.name}</h3>
-            <p class="summary">{p.summary}</p>
-            {p.retiredCompanion && <p class="retired">{p.retiredCompanion} (retired)</p>}
+            <h3><Marked text={p.name} /></h3>
+            <p class="summary"><Marked text={p.summary} /></p>
+            {p.retiredCompanion && <p class="retired"><Marked text={p.retiredCompanion} /> (retired)</p>}
             {projectLinks(p).length > 0 && (
               <p class="links">
                 {projectLinks(p).map((l) => (

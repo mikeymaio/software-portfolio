@@ -1,27 +1,27 @@
 ---
 // One credit row (term, dotted leader, value). Role and Years values come through here,
-// so #56 hooks its `TODO(michael)` handling in this one place.
+// and the marker is rendered by Marked.astro.
+import Marked from './Marked.astro'
 interface Props {
   term: string
   value?: string
   list?: string[]
 }
 const { term, value, list } = Astro.props
-const isTodo = value?.includes('TODO(michael)') ?? false
 ---
 
 <div class="credit">
   <dt>{term}</dt><span class="lead" aria-hidden="true"></span>
-  <dd class:list={{ todo: isTodo }}>
+  <dd>
     {
       list
         ? list.map((t, i) => (
             <>
               {i > 0 && <span class="sep" aria-hidden="true"> · </span>}
-              <span class="t">{t}</span>
+              <span class="t"><Marked text={t} /></span>
             </>
           ))
-        : value
+        : value !== undefined && <Marked text={value} />
     }
   </dd>
 </div>
@@ -53,9 +53,5 @@ const isTodo = value?.includes('TODO(michael)') ?? false
   }
   .t {
     white-space: nowrap;
-  }
-  .todo {
-    color: var(--muted);
-    font-style: italic;
   }
 </style>

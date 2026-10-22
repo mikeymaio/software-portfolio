@@ -95,3 +95,15 @@ test('the header Work link reaches the section', async ({ page }) => {
 test('axe scans stay clean with the Work section', async ({ page }) => {
   await expectNoA11yViolationsInBothThemes(page)
 })
+
+test.describe('TODO(michael) marker in the normal build', () => {
+  test('renders in muted italics where a Project credit is still a gap', async ({ page }) => {
+    await page.goto('/')
+    const marker = page.locator('#featured-projects').getByText('TODO(michael)').first()
+    await expect(marker).toBeVisible()
+    await expect(marker).toHaveCSS('font-style', 'italic')
+    const color = await marker.evaluate((el) => getComputedStyle(el).color)
+    const ink = await page.locator('h3').first().evaluate((el) => getComputedStyle(el).color)
+    expect(color).not.toBe(ink)
+  })
+})
