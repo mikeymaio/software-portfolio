@@ -1,0 +1,15 @@
+{
+  "name": "Dayworker",
+  "client": "Dayworker",
+  "role": "TODO(michael)",
+  "years": "TODO(michael)",
+  "summary": "Professional network connecting companies and contractors with local laborers and tradespeople",
+  "stack": ["React Native", "Redux", "Firebase", "Sendbird"],
+  "links": {
+    "website": "https://dayworker.co/",
+    "appStore": "https://apps.apple.com/us/app/dayworker-co/id6502521610",
+    "googlePlay": "https://play.google.com/store/apps/details?id=com.dayworkermobile&hl=en_US"
+  },
+  "order": 2,
+  "featured": true
+}

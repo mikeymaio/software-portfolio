@@ -1,0 +1,16 @@
+{
+  "name": "Daki & JOKR",
+  "client": "Daki",
+  "role": "TODO(michael)",
+  "years": "TODO(michael)",
+  "summary": "Two grocery-delivery apps from one React Native codebase",
+  "stack": ["React Native", "Redux", "GraphQL", "Apollo", "Mixpanel", "Braze", "Google Cloud Platform"],
+  "links": {
+    "website": "https://www.soudaki.com/",
+    "appStore": "https://apps.apple.com/br/app/daki-mercado-em-minutos/id1542429806",
+    "googlePlay": "https://play.google.com/store/apps/details?id=com.daki&hl=en_US&gl=US"
+  },
+  "retiredCompanion": "JOKR",
+  "order": 3,
+  "featured": true
+}

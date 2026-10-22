@@ -1,0 +1,15 @@
+{
+  "name": "PushPress Member Portal & Screens",
+  "client": "PushPress",
+  "role": "TODO(michael)",
+  "years": "TODO(michael)",
+  "summary": "White-label gym apps, plus a companion app showing the daily workout and class attendance",
+  "stack": ["React Native", "React Native Web", "Redux", "Firebase", "NativeBase"],
+  "links": {
+    "website": "https://www.pushpress.com/",
+    "appStore": "https://apps.apple.com/us/app/pushpress-member-portal/id1309909578",
+    "googlePlay": "https://play.google.com/store/apps/details?id=com.pushpress.memberportal&hl=en_US"
+  },
+  "retiredCompanion": "Screens",
+  "order": 6
+}
