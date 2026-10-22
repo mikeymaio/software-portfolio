@@ -1,4 +1,5 @@
 ---
+import Marked from './Marked.astro'
 import { Image } from 'astro:assets'
 const { aboutText, toolkit, portrait } = Astro.props
 ---
@@ -7,8 +8,8 @@ const { aboutText, toolkit, portrait } = Astro.props
   <h2><span class="sec-no">Side B · </span>About</h2>
   <div class:list={['grid', { 'with-portrait': portrait }]}>
     <div>
-      <p class="lede">{aboutText}</p>
-      <p class="toolkit">{toolkit}</p>
+      <p class="lede"><Marked text={aboutText} /></p>
+      <p class="toolkit"><Marked text={toolkit} /></p>
     </div>
     {portrait && <Image class="portrait" src={portrait.src} alt={portrait.alt} width={336} />}
   </div>

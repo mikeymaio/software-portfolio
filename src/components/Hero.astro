@@ -1,12 +1,13 @@
 ---
+import Marked from './Marked.astro'
 import Signature from './Signature.astro'
 const { name, positioningLine, contextSentence, email, resumeHref } = Astro.props
 ---
 
 <section id="top" class="hero wrap">
-  <h1>{name}</h1>
-  <p class="position">{positioningLine}</p>
-  <p class="context">{contextSentence}</p>
+  <h1><Marked text={name} /></h1>
+  <p class="position"><Marked text={positioningLine} /></p>
+  <p class="context"><Marked text={contextSentence} /></p>
   <p class="actions">
     <a class="btn primary" href={resumeHref}>Resume</a>
     <a class="btn" href={`mailto:${email}`}>Email me</a>

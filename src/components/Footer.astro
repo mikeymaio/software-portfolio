@@ -1,9 +1,10 @@
 ---
+import Marked from './Marked.astro'
 const { name } = Astro.props
 ---
 
 <footer class="wrap">
-  <small>© {new Date().getFullYear()} {name}</small>
+  <small>© {new Date().getFullYear()} <Marked text={name} /></small>
 </footer>
 
 <style>
