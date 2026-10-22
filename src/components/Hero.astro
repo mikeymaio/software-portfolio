@@ -9,7 +9,7 @@ const { name, positioningLine, contextSentence, email, resumeHref } = Astro.prop
   <p class="position"><Marked text={positioningLine} /></p>
   <p class="context"><Marked text={contextSentence} /></p>
   <p class="actions">
-    <a class="btn primary" href={resumeHref}>Resume</a>
+    <a class="btn primary" href={resumeHref} target="_blank" rel="noopener noreferrer">Resume</a>
     <a class="btn" href={`mailto:${email}`}>Email me</a>
   </p>
   <Signature />

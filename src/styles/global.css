@@ -179,6 +179,20 @@ h3 {
   color: var(--ink);
 }
 
+/* Theme switch: the toggle sets data-theme-fading for ~350ms around a click (never on load). */
+@media (prefers-reduced-motion: no-preference) {
+  html[data-theme-fading] *,
+  html[data-theme-fading] *::before,
+  html[data-theme-fading] *::after {
+    transition:
+      background-color 250ms ease,
+      color 250ms ease,
+      border-color 250ms ease,
+      fill 250ms ease,
+      stroke 250ms ease !important;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

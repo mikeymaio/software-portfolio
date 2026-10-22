@@ -19,6 +19,8 @@ test.describe('hero with JavaScript disabled', () => {
     const hero = page.locator('#top')
     const resume = hero.getByRole('link', { name: 'Resume' })
     await expect(resume).toHaveAttribute('href', '/resume.pdf')
+    await expect(resume).toHaveAttribute('target', '_blank')
+    await expect(resume).toHaveAttribute('rel', 'noopener noreferrer')
     const res = await request.get('/resume.pdf')
     expect(res.status()).toBe(200)
     expect(res.headers()['content-type']).toContain('pdf')
