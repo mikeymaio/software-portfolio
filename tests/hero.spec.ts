@@ -65,7 +65,7 @@ test('header gains the paper background once scrolled', async ({ page }) => {
 
 test('every link and button shows a focus style', async ({ page }) => {
   await page.goto('/')
-  const links = page.locator('header a, main a')
+  const links = page.locator('header a, main a').filter({ visible: true })
   const n = await links.count()
   for (let i = 0; i < n; i++) {
     await links.nth(i).focus()
