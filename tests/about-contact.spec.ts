@@ -46,6 +46,16 @@ test('Contact shows the closing line and every way to reach Michael', async ({ p
   await expect(contact.getByRole('link', { name: 'Resume' })).toHaveAttribute('href', '/resume.pdf')
 })
 
+test('every Resume link opens in a new tab', async ({ page }) => {
+  await page.goto('/')
+  const links = page.getByRole('link', { name: 'Resume' })
+  expect(await links.count()).toBe(3) // header, hero, contact
+  for (const link of await links.all()) {
+    await expect(link).toHaveAttribute('target', '_blank')
+    await expect(link).toHaveAttribute('rel', 'noopener noreferrer')
+  }
+})
+
 test('footer shows the year and name', async ({ page }) => {
   await page.goto('/')
   await expect(page.locator('footer')).toContainText(

@@ -15,11 +15,18 @@
     const t = root.getAttribute('data-theme')
     return t ? t === 'dark' : mq.matches
   }
+  let fadeTimer: ReturnType<typeof setTimeout>
   const sync = () => btn.setAttribute('aria-pressed', String(isDark()))
   sync()
   mq.addEventListener('change', sync)
   btn.addEventListener('click', () => {
     const next = isDark() ? 'light' : 'dark'
+    // Brief cross-fade, only for a deliberate click and only when motion is allowed.
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      root.setAttribute('data-theme-fading', '')
+      clearTimeout(fadeTimer)
+      fadeTimer = setTimeout(() => root.removeAttribute('data-theme-fading'), 350)
+    }
     root.setAttribute('data-theme', next)
     try {
       localStorage.setItem('theme', next)
