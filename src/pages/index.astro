@@ -10,7 +10,19 @@ import Contact from '../components/Contact.astro'
 import Footer from '../components/Footer.astro'
 
 const [profile] = await getCollection('profile')
-const { name, positioningLine, contextSentence, contactEmail, resumePath } = profile.data
+const {
+  name,
+  positioningLine,
+  contextSentence,
+  contactEmail,
+  resumePath,
+  aboutText,
+  toolkit,
+  portrait,
+  closingLine,
+  githubUrl,
+  linkedinUrl,
+} = profile.data
 const resumeHref = url(resumePath)
 ---
 
@@ -25,8 +37,14 @@ const resumeHref = url(resumePath)
       resumeHref={resumeHref}
     />
     <Work />
-    <About />
-    <Contact />
+    <About aboutText={aboutText} toolkit={toolkit} portrait={portrait} />
+    <Contact
+      closingLine={closingLine}
+      email={contactEmail}
+      githubUrl={githubUrl}
+      linkedinUrl={linkedinUrl}
+      resumeHref={resumeHref}
+    />
   </main>
-  <Footer />
+  <Footer name={name} />
 </Base>

@@ -3,5 +3,10 @@
   "positioningLine": "Full-stack engineer. I ship mobile apps and AI products, start to finish.",
   "contextSentence": "Ten years building React Native apps, web platforms, and lately AI assistants, for startups, agencies, and nonprofits.",
   "contactEmail": "hello@michaelmaio.com",
-  "resumePath": "resume.pdf"
+  "resumePath": "resume.pdf",
+  "aboutText": "Before I wrote software I was a musician and audio engineer: years of tracking, mixing, and shipping records on deadline. It turns out that's good training for engineering — listen closely, cut what doesn't serve the song, and ship.",
+  "toolkit": "Current toolkit: TypeScript, React, React Native, Node, Python, LangChain, AWS.",
+  "githubUrl": "https://github.com/mikeymaio",
+  "linkedinUrl": "https://www.linkedin.com/in/michael-maio/",
+  "closingLine": "Need a senior engineer, for a role or a project? Let's talk."
 }
