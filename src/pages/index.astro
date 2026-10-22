@@ -1,25 +1,32 @@
 ---
 import { getCollection } from 'astro:content'
 import { url } from '../lib/url'
+import Base from '../layouts/Base.astro'
+import Header from '../components/Header.astro'
+import Hero from '../components/Hero.astro'
+import Work from '../components/Work.astro'
+import About from '../components/About.astro'
+import Contact from '../components/Contact.astro'
+import Footer from '../components/Footer.astro'
 
 const [profile] = await getCollection('profile')
-const { name, positioningLine } = profile.data
+const { name, positioningLine, contextSentence, contactEmail, resumePath } = profile.data
+const resumeHref = url(resumePath)
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{name} — Full-stack engineer</title>
-    <meta name="description" content={positioningLine} />
-    <link rel="canonical" href={new URL(url(), Astro.site).href} />
-    <link rel="icon" href={url('favicon.ico')} />
-  </head>
-  <body>
-    <main>
-      <h1>{name}</h1>
-      <p>{positioningLine}</p>
-    </main>
-  </body>
-</html>
+<Base title={`${name} — Full-stack engineer`} description={positioningLine}>
+  <Header brand={name} resumeHref={resumeHref} />
+  <main>
+    <Hero
+      name={name}
+      positioningLine={positioningLine}
+      contextSentence={contextSentence}
+      email={contactEmail}
+      resumeHref={resumeHref}
+    />
+    <Work />
+    <About />
+    <Contact />
+  </main>
+  <Footer />
+</Base>

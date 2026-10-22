@@ -1,0 +1,24 @@
+---
+import '../styles/global.css'
+import HeadMeta from '../components/HeadMeta.astro'
+import ThemeInit from '../components/ThemeInit.astro'
+import geistUrl from '../fonts/Geist-Variable.woff2?url'
+import geistMonoUrl from '../fonts/GeistMono-Variable.woff2?url'
+
+const { title, description } = Astro.props
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <ThemeInit />
+    <HeadMeta title={title} description={description} />
+    <link rel="preload" href={geistUrl} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={geistMonoUrl} as="font" type="font/woff2" crossorigin />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

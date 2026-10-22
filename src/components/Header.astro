@@ -1,0 +1,80 @@
+---
+
+const { brand, resumeHref } = Astro.props
+---
+
+<header class="site">
+  <div class="wrap bar">
+    <a class="brand" href="#top">{brand}</a>
+    <nav aria-label="Primary">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a href={resumeHref}>Resume</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  header.site {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--bg); /* solid fallback */
+    border-bottom: 1px solid var(--rule);
+  }
+  .bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0 16px;
+    min-height: var(--header-height);
+  }
+  .brand {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 18px;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    white-space: nowrap;
+    padding: 4px 0;
+  }
+  nav {
+    display: flex;
+    gap: clamp(4px, 2.5vw, 20px);
+    margin-left: auto;
+  }
+  nav a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 8px 4px; /* 24px+ target height */
+    font-size: 15px;
+  }
+  nav a:hover {
+    color: var(--accent);
+  }
+
+  /* Enhancement: transparent over the hero, paper + hairline once scrolled. */
+  @supports (animation-timeline: scroll()) {
+    @media (prefers-reduced-motion: no-preference) {
+      header.site {
+        background: transparent;
+        border-bottom-color: transparent;
+        /* Longhands on purpose: the minifier rewrites a full set into a shorthand
+           that drops animation-timeline. */
+        animation-name: header-solid;
+        animation-timing-function: linear;
+        animation-fill-mode: both;
+        animation-timeline: scroll(root block);
+        animation-range: 0 80px;
+      }
+    }
+  }
+  @keyframes header-solid {
+    to {
+      background: var(--bg);
+      border-bottom-color: var(--rule);
+    }
+  }
+</style>
