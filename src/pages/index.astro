@@ -1,0 +1,50 @@
+---
+import { getCollection } from 'astro:content'
+import { url } from '../lib/url'
+import Base from '../layouts/Base.astro'
+import Header from '../components/Header.astro'
+import Hero from '../components/Hero.astro'
+import Work from '../components/Work.astro'
+import About from '../components/About.astro'
+import Contact from '../components/Contact.astro'
+import Footer from '../components/Footer.astro'
+
+const [profile] = await getCollection('profile')
+const {
+  name,
+  positioningLine,
+  contextSentence,
+  contactEmail,
+  resumePath,
+  aboutText,
+  toolkit,
+  portrait,
+  closingLine,
+  githubUrl,
+  linkedinUrl,
+} = profile.data
+const resumeHref = url(resumePath)
+---
+
+<Base title={`${name} — Full-stack engineer`} description={positioningLine}>
+  <Header brand={name} resumeHref={resumeHref} />
+  <main>
+    <Hero
+      name={name}
+      positioningLine={positioningLine}
+      contextSentence={contextSentence}
+      email={contactEmail}
+      resumeHref={resumeHref}
+    />
+    <Work />
+    <About aboutText={aboutText} toolkit={toolkit} portrait={portrait} />
+    <Contact
+      closingLine={closingLine}
+      email={contactEmail}
+      githubUrl={githubUrl}
+      linkedinUrl={linkedinUrl}
+      resumeHref={resumeHref}
+    />
+  </main>
+  <Footer name={name} />
+</Base>

@@ -1,0 +1,14 @@
+{
+  "name": "Futuri Engage Mobile",
+  "client": "Futuri",
+  "role": "TODO(michael)",
+  "years": "TODO(michael)",
+  "summary": "Customizable media apps for radio stations",
+  "stack": ["React Native", "Redux", "Objective-C", "Java"],
+  "links": {
+    "website": "https://futurimedia.com/mobile/",
+    "appStore": "https://apps.apple.com/us/app/97x-tampa-bays-new-alternative/id588627536",
+    "googlePlay": "https://play.google.com/store/apps/details?id=com.jacobsmedia.WSUN&hl=en_US"
+  },
+  "order": 7
+}

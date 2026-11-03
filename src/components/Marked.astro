@@ -1,0 +1,20 @@
+---
+// Renders content text. A value containing the `TODO(michael)` marker is muted italic so the
+// gap stays visible in non-production builds (production builds fail on it; see todo-guard).
+import { MARKER } from '../integrations/todo-guard.mjs'
+
+interface Props {
+  text: string
+}
+const { text } = Astro.props
+const isTodo = text.includes(MARKER)
+---
+
+{isTodo ? <span class="todo">{text}</span> : text}
+
+<style>
+  .todo {
+    color: var(--muted);
+    font-style: italic;
+  }
+</style>

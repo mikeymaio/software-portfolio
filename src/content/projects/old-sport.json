@@ -1,0 +1,13 @@
+{
+  "name": "OLD_SPORT band website",
+  "client": "OLD_SPORT",
+  "role": "TODO(michael)",
+  "years": "TODO(michael)",
+  "summary": "Website for the band OLD_SPORT",
+  "stack": ["React", "webpack"],
+  "links": {
+    "website": "https://ofcourseweare.com/",
+    "code": "https://github.com/mikeymaio/old_sport_website"
+  },
+  "order": 9
+}

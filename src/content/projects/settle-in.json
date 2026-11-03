@@ -1,0 +1,15 @@
+{
+  "name": "Settle In",
+  "client": "International Rescue Committee",
+  "role": "TODO(michael)",
+  "years": "TODO(michael)",
+  "summary": "Cultural orientation app for refugees",
+  "stack": ["React Native", "Redux", "i18n"],
+  "links": {
+    "website": "https://corenav.org/en/settle-in/",
+    "appStore": "https://apps.apple.com/us/app/settle-in/id1353000516",
+    "googlePlay": "https://play.google.com/store/apps/details?id=com.irc.settlein&hl=en_US"
+  },
+  "order": 5,
+  "featured": true
+}

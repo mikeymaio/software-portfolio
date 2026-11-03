@@ -1,0 +1,57 @@
+---
+// One credit row (term, dotted leader, value). Role and Years values come through here,
+// and the marker is rendered by Marked.astro.
+import Marked from './Marked.astro'
+interface Props {
+  term: string
+  value?: string
+  list?: string[]
+}
+const { term, value, list } = Astro.props
+---
+
+<div class="credit">
+  <dt>{term}</dt><span class="lead" aria-hidden="true"></span>
+  <dd>
+    {
+      list
+        ? list.map((t, i) => (
+            <>
+              {i > 0 && <span class="sep" aria-hidden="true"> · </span>}
+              <span class="t"><Marked text={t} /></span>
+            </>
+          ))
+        : value !== undefined && <Marked text={value} />
+    }
+  </dd>
+</div>
+
+<style>
+  .credit {
+    display: flex;
+    align-items: baseline;
+    padding: 3px 0;
+  }
+  dt {
+    flex: none;
+    color: var(--muted);
+  }
+  .lead {
+    flex: 1 1 1.5em;
+    min-width: 1.5em;
+    margin: 0 0.6ch;
+    border-bottom: 1px dotted var(--muted);
+    transform: translateY(-0.3em);
+  }
+  dd {
+    margin: 0;
+    text-align: right;
+    flex: 0 1 auto;
+  }
+  .sep {
+    color: var(--muted);
+  }
+  .t {
+    white-space: nowrap;
+  }
+</style>
